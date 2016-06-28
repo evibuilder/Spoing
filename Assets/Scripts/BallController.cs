@@ -65,6 +65,7 @@ public class BallController : MonoBehaviour
 
                 _controller.enabled = false;
                 ballBody.isKinematic = false;
+                ballBody.gravityScale = 1f;
 
                 swinging = true;
 
@@ -101,7 +102,7 @@ public class BallController : MonoBehaviour
             velocity.x = walkSpeed;
         }
 
-        if (!swinging)
+        if (!swinging && !_controller.isGrounded)
         velocity.y += gravity * Time.deltaTime;
         
         _controller.move(velocity * Time.deltaTime);
@@ -121,7 +122,7 @@ public class BallController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "spring" && falling)
+        if (col.name == "spring" && falling && isActive)
         {
             Vector3 velocity = _controller.velocity;
 

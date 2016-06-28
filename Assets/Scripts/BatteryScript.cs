@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BatteryScript : MonoBehaviour {
 
-    public float gravity = -35f;
+    public float moveSpeed = 4.5f;
 
     private Vector3 velocity;
     private Rigidbody2D _controller;
@@ -18,6 +18,17 @@ public class BatteryScript : MonoBehaviour {
         if(col.name == "ball")
         {
             _controller.isKinematic = false;
+
+            velocity.x += moveSpeed;
+            velocity.y = 0;
+            velocity.z = 0;
+
+            if (transform.position.x < col.transform.position.x)
+            {
+                velocity *= -1;
+            }
+
+            _controller.AddForce(velocity);
         }
     }
 
@@ -26,6 +37,17 @@ public class BatteryScript : MonoBehaviour {
         if (col.name == "ball")
         {
             _controller.isKinematic = false;
+
+            velocity.x += moveSpeed;
+            velocity.y = 0;
+            velocity.z = 0;
+
+            if(transform.position.x < col.transform.position.x)
+            {
+                velocity *= -1;
+            }
+
+            _controller.AddForce(velocity);
         }
     }
 
