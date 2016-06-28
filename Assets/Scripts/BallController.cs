@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Prime31;
+using System.Diagnostics;
 
 public class BallController : MonoBehaviour
 {
     public float gravity = -35f;
     public float walkSpeed = 3;
     public float jumpHeight = 2;
-    public float swingLength = 3;
+    public float maxSwingLength = 6;
+    public float minSwingLength = 1;
 
     private CharacterController2D _controller;
     private DistanceJoint2D joint;
@@ -18,6 +20,8 @@ public class BallController : MonoBehaviour
     private bool swinging;
     private float originY;
     private float currentY;
+    private Stopwatch timer;
+    private float currentSwingLength;
 
     void Start()
     {
@@ -26,6 +30,9 @@ public class BallController : MonoBehaviour
         joint.enabled = false;
         springBody = GameObject.Find("spring").GetComponent<Rigidbody2D>();
         ballBody = gameObject.GetComponent<Rigidbody2D>();
+        timer = new Stopwatch();
+
+        currentSwingLength = (maxSwingLength - minSwingLength) / 2;
 
         isActive = false;
         falling = false;
@@ -34,6 +41,18 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
+        if(!timer.IsRunning && GetComponent<Rigidbody2D>().isKinematic == false)
+        {
+            timer.Reset();
+            timer.Start();
+        }
+
+        if(timer.IsRunning && timer.ElapsedMilliseconds > 2000)
+        {
+            timer.Stop();
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
+
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             switch (isActive)
@@ -51,7 +70,7 @@ public class BallController : MonoBehaviour
 
         if (isActive && Input.GetKeyDown(KeyCode.E))
         {
-            if(CalcDistance() <= swingLength)
+            if(CalcDistance() <= maxSwingLength)
             {
                 joint.connectedBody = springBody;
 
@@ -61,7 +80,7 @@ public class BallController : MonoBehaviour
 
                 joint.connectedAnchor = springPos;
 
-                joint.distance = swingLength;
+                joint.distance = currentSwingLength;
 
                 _controller.enabled = false;
                 ballBody.isKinematic = false;
@@ -73,7 +92,32 @@ public class BallController : MonoBehaviour
             }
         }
 
-        if(isActive && Input.GetKeyUp(KeyCode.Space) && swinging)
+        if (isActive && swinging && Input.GetKeyDown(KeyCode.W))
+        {
+            currentSwingLength -= 0.5f;
+
+            if (currentSwingLength <= minSwingLength)
+            {
+                currentSwingLength = minSwingLength;
+            }
+        }
+        else if (isActive && swinging && Input.GetKeyDown(KeyCode.S))
+        {
+            currentSwingLength += 0.5f;
+
+            if (currentSwingLength >= maxSwingLength)
+            {
+                currentSwingLength = maxSwingLength;
+            }
+        }
+
+        if (isActive && swinging)
+        {
+            joint.distance = currentSwingLength;
+            ballBody.isKinematic = false;
+        }
+
+        if (isActive && Input.GetKeyUp(KeyCode.Space) && swinging)
         {
             joint.connectedBody = null;
 

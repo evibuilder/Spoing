@@ -62,32 +62,31 @@ public class SpringController : MonoBehaviour
                 timer.Stop();
                 launching = false;
 
-                Vector3 velocity;
-                velocity.x = 50;
-                velocity.y = 0;
-                velocity.z = 0;
+                Vector3 power;
+                power.x = 50;
+                power.y = 0;
+                power.z = 0;
 
                 if(transform.position.x > ballBody.transform.position.x)
                 {
-                    velocity *= -1;
+                    power *= -1;
                 }
 
                 ballBody.gravityScale = 0;
                 ballBody.isKinematic = false;
-                ballBody.AddForce(velocity * 25f * (timer.ElapsedMilliseconds / 1000f));
+                ballBody.AddForce(power * 25f * (timer.ElapsedMilliseconds / 1000f));
                 transform.Rotate(0, 0, 90);
             }
         }
-        else
-        {
+
             Vector3 velocity = _controller.velocity;
             velocity.x = 0;
 
-            if (Input.GetAxis("Horizontal") < 0 && !chargingUp && isActive)
+            if (Input.GetAxis("Horizontal") < 0 && !chargingUp && !launching && isActive)
             {
                 velocity.x = walkSpeed * -1;
             }
-            else if (Input.GetAxis("Horizontal") > 0 && !chargingUp && isActive)
+            else if (Input.GetAxis("Horizontal") > 0 && !chargingUp && !launching && isActive)
             {
                 velocity.x = walkSpeed;
             }
@@ -107,7 +106,7 @@ public class SpringController : MonoBehaviour
                     velocity.y = Mathf.Sqrt((timer.ElapsedMilliseconds / 1000f) * 4f * jumpHeight * -gravity);
                 }
             }
-            else if (_controller.isGrounded && !chargingUp && isActive)
+            else if (_controller.isGrounded && !chargingUp && !launching && isActive)
             {
                 velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
             }
@@ -115,7 +114,7 @@ public class SpringController : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
 
             _controller.move(velocity * Time.deltaTime);
-        }
+        
     }
 
     public float CalcDistance()
