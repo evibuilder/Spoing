@@ -16,13 +16,10 @@ public class KillPlayer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D box)
 	{
-		if (box.name == "spring") {
+		if (box.name == "spring" || box.name == "ball") {
 			levelManager.RespawnPlayer();
 		} 
-		else if (box.name == "ball") 
-		{
-			levelManager.RespawnPlayer();
-		}
+
 	}
 		
 }

@@ -5,6 +5,7 @@ public class LevelManager : MonoBehaviour {
 
 	public GameObject currentSpringPoint;
 	public GameObject currentBallPoint;
+	public GameManager gameManager;
 
 	private SpringController spring;
 	private BallController ball;
@@ -12,6 +13,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 		spring = FindObjectOfType<SpringController> ();
 		ball = FindObjectOfType<BallController> ();
+		gameManager = FindObjectOfType<GameManager> ();
 	
 	}
 	
@@ -29,5 +31,6 @@ public class LevelManager : MonoBehaviour {
 	public void FinishLevel()
 	{
 		Debug.Log ("Level Finished");
+
 	}
 }
