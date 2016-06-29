@@ -15,6 +15,7 @@ public class BallController : MonoBehaviour
     private DistanceJoint2D joint;
     private Rigidbody2D springBody;
     private Rigidbody2D ballBody;
+    private Transform springTransform;
     private bool isActive;
     private bool falling;
     private bool swinging;
@@ -22,6 +23,9 @@ public class BallController : MonoBehaviour
     private float currentY;
     private Stopwatch timer;
     private float currentSwingLength;
+    private float springOriginX;
+    private float springOriginY;
+
 
     void Start()
     {
@@ -31,8 +35,12 @@ public class BallController : MonoBehaviour
         springBody = GameObject.Find("spring").GetComponent<Rigidbody2D>();
         ballBody = gameObject.GetComponent<Rigidbody2D>();
         timer = new Stopwatch();
+        springTransform = GameObject.Find("spring").GetComponent<Transform>();
 
         currentSwingLength = (maxSwingLength - minSwingLength) / 2;
+
+        springOriginX = GameObject.Find("spring").GetComponent<Transform>().position.x;
+        springOriginY = GameObject.Find("spring").GetComponent<Transform>().position.y;
 
         isActive = false;
         falling = false;
@@ -41,13 +49,13 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
-        if(!timer.IsRunning && GetComponent<Rigidbody2D>().isKinematic == false)
+        if (timer != null && !timer.IsRunning && GetComponent<Rigidbody2D>().isKinematic == false)
         {
             timer.Reset();
             timer.Start();
         }
 
-        if(timer.IsRunning && timer.ElapsedMilliseconds > 2000)
+        if (timer.IsRunning && timer.ElapsedMilliseconds > 2000)
         {
             timer.Stop();
             GetComponent<Rigidbody2D>().isKinematic = true;
@@ -70,7 +78,7 @@ public class BallController : MonoBehaviour
 
         if (isActive && Input.GetKeyDown(KeyCode.E))
         {
-            if(CalcDistance() <= maxSwingLength)
+            if (CalcDistance() <= maxSwingLength)
             {
                 joint.connectedBody = springBody;
 
@@ -89,12 +97,15 @@ public class BallController : MonoBehaviour
                 swinging = true;
 
                 joint.enabled = true;
+
+                springOriginX = GameObject.Find("spring").GetComponent<Transform>().position.x;
+                springOriginY = GameObject.Find("spring").GetComponent<Transform>().position.y;
             }
         }
 
         if (isActive && swinging && Input.GetKeyDown(KeyCode.W))
         {
-            currentSwingLength -= 0.5f;
+            currentSwingLength -= 0.25f;
 
             if (currentSwingLength <= minSwingLength)
             {
@@ -103,7 +114,7 @@ public class BallController : MonoBehaviour
         }
         else if (isActive && swinging && Input.GetKeyDown(KeyCode.S))
         {
-            currentSwingLength += 0.5f;
+            currentSwingLength += 0.25f;
 
             if (currentSwingLength >= maxSwingLength)
             {
@@ -115,6 +126,8 @@ public class BallController : MonoBehaviour
         {
             joint.distance = currentSwingLength;
             ballBody.isKinematic = false;
+
+            //UpdateSprite();
         }
 
         if (isActive && Input.GetKeyUp(KeyCode.Space) && swinging)
@@ -134,15 +147,18 @@ public class BallController : MonoBehaviour
             _controller.move(momentum * Time.deltaTime);
         }
 
-		if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform") {
-			this.transform.parent = _controller.ground.transform;
+        if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
+        {
+            this.transform.parent = _controller.ground.transform;
 
-		} 
-		else {
-			if (this.transform.parent != null) {
-				transform.parent = null;
-			}
-		}
+        }
+        else
+        {
+            if (this.transform.parent != null)
+            {
+                transform.parent = null;
+            }
+        }
 
 
         Vector3 velocity = _controller.velocity;
@@ -158,8 +174,8 @@ public class BallController : MonoBehaviour
         }
 
         if (!swinging && !_controller.isGrounded)
-        velocity.y += gravity * Time.deltaTime;
-        
+            velocity.y += gravity * Time.deltaTime;
+
         _controller.move(velocity * Time.deltaTime);
 
         if (_controller.velocity.y < currentY)
@@ -205,6 +221,26 @@ public class BallController : MonoBehaviour
         y2 = gameObject.transform.position.y;
 
         return Mathf.Sqrt(Mathf.Pow(x1 - x2, 2) + Mathf.Pow(y1 - y2, 2));
+    }
+
+    void UpdateSprite()
+    {
+        float x1 = springOriginX;
+        float y1 = springOriginY;
+        float x2 = transform.position.x;
+        float y2 = transform.position.y;
+
+        float midX = (x1 + x2) / 2;
+        float midY = (y1 + y2) / 2;
+
+        float sizeY = y2 - springOriginY;
+
+        springTransform.position.Set(midX, midY, 0);
+
+        float currXScale = springTransform.localScale.x;
+        float currZScale = springTransform.localScale.z;
+
+        springTransform.localScale.Set(currXScale, sizeY, currZScale);
     }
 
 }

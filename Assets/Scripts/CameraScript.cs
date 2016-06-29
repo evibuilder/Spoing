@@ -27,6 +27,7 @@ namespace camera
                     case 1: activeCamera = 2;
                         break;
                     case 2: activeCamera = 1;
+                        SetFollow(true);
                         break;
                     default:
                         break;

@@ -14,7 +14,6 @@ public class LevelManager : MonoBehaviour {
 		spring = FindObjectOfType<SpringController> ();
 		ball = FindObjectOfType<BallController> ();
 		gameManager = FindObjectOfType<GameManager> ();
-	
 	}
 	
 	// Update is called once per frame

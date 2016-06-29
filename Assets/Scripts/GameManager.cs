@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -15,18 +15,16 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void RestartLevel(){
-		Application.LoadLevel (Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		//UnityEditor.SceneManagement.EditorSceneManager.LoadScene (UnityEditor.SceneManagement.EditorSceneManager.loadedSceneCount);
 		//EditorSceneManager.LoadScene (EditorSceneManager.loadedSceneCount);
 	}
 
 	public void ExitLevel(){
-		Application.LoadLevel ("MainMenu");
-		//EditorSceneManager.LoadScene ("MainMenu");
+		SceneManager.LoadScene ("MainMenu");
 	}
 	public void Play(){
-		Application.LoadLevel (1);
-		//EditorSceneManager.LoadScene (1);
+		SceneManager.LoadScene ("PlayGround2");
 	}
 	public void ExitGame(){
 		Application.Quit ();

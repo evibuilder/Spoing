@@ -8,7 +8,7 @@ public class SpringController : MonoBehaviour
     public float gravity = -35f;
     public float walkSpeed = 3;
     public float jumpHeight = 2;
-    public float launchDistance = 1;
+    
 
     private CharacterController2D _controller;
     private SpringJoint2D joint;
@@ -18,6 +18,7 @@ public class SpringController : MonoBehaviour
     private bool chargingUp;
     private bool isActive;
     private bool launching;
+    private float launchDistance;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class SpringController : MonoBehaviour
 		jumpTimer = new Stopwatch ();
         chargingUp = false;
         isActive = true;
+        launchDistance = GetComponent<BoxCollider2D>().size.y;
     }
 
     void Update()
@@ -51,6 +53,11 @@ public class SpringController : MonoBehaviour
                 launching = true;
                 transform.Rotate(0,0, -90);
             }
+        }
+        else if(isActive && Input.GetKeyDown(KeyCode.E) && launching)
+        {
+            launching = false;
+            transform.Rotate(0, 0, 90);
         }
         else if(isActive && launching)
         {
