@@ -134,6 +134,17 @@ public class BallController : MonoBehaviour
             _controller.move(momentum * Time.deltaTime);
         }
 
+		if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform") {
+			this.transform.parent = _controller.ground.transform;
+
+		} 
+		else {
+			if (this.transform.parent != null) {
+				transform.parent = null;
+			}
+		}
+
+
         Vector3 velocity = _controller.velocity;
         velocity.x = 0;
 

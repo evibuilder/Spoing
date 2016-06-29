@@ -15,6 +15,7 @@ public class FinishLevel : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D box)
 	{
+		print ("finish triggered");
 		if (box.name == "spring" && box.name == "ball") {
 			levelManager.FinishLevel();
 		} 
