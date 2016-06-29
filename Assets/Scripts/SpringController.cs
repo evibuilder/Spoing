@@ -14,6 +14,7 @@ public class SpringController : MonoBehaviour
     private SpringJoint2D joint;
     private Rigidbody2D ballBody;
     private Stopwatch timer;
+	private Stopwatch jumpTimer;
     private bool chargingUp;
     private bool isActive;
     private bool launching;
@@ -23,6 +24,7 @@ public class SpringController : MonoBehaviour
         _controller = gameObject.GetComponent<CharacterController2D>();
         ballBody = GameObject.Find("ball").GetComponent<Rigidbody2D>();
         timer = new Stopwatch();
+		jumpTimer = new Stopwatch ();
         chargingUp = false;
         isActive = true;
     }
@@ -96,6 +98,7 @@ public class SpringController : MonoBehaviour
                 timer.Reset();
                 timer.Start();
                 chargingUp = true;
+				GameObject.Find ("Main Camera").SendMessage ("SetFollow", true);
             }
             if (Input.GetKeyUp(KeyCode.Space) && isActive)
             {
@@ -109,12 +112,26 @@ public class SpringController : MonoBehaviour
             else if (_controller.isGrounded && !chargingUp && !launching && isActive)
             {
                 velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
+				GameObject.Find ("Main Camera").SendMessage ("SetFollow", false);
+
+			if (jumpTimer.IsRunning) {
+				jumpTimer.Reset ();
+				jumpTimer.Start ();
+			} else {
+				jumpTimer.Start ();
+			}
             }
+			
+			
 
             velocity.y += gravity * Time.deltaTime;
+			
+			if (jumpTimer.ElapsedMilliseconds > 700) {
+				GameObject.Find ("Main Camera").SendMessage ("SetFollow", true);
+			}
 
             _controller.move(velocity * Time.deltaTime);
-        
+    
     }
 
     public float CalcDistance()
