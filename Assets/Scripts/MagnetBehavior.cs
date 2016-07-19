@@ -9,6 +9,8 @@ public class MagnetBehavior : MonoBehaviour {
     public int maxDistance = 20;
     public int moveSpeed = 3;
     public float magnetStrength = 50f;
+    public LevelManager levelManager;
+
 
     private int currDistance;
     private bool moveRight;
@@ -23,6 +25,7 @@ public class MagnetBehavior : MonoBehaviour {
     private float prevLinDrag;
     private float prevMass;
     private Quaternion rotation;
+    private Stopwatch respawnTimer;
 
     void Start () {
         currDistance = 0;
@@ -34,7 +37,7 @@ public class MagnetBehavior : MonoBehaviour {
         joint.enabled = false;
         springBody = GameObject.Find("spring").GetComponent<Rigidbody2D>();
         springController = GameObject.Find("spring").GetComponent<CharacterController2D>();
-
+    
         magnetWidth = gameObject.GetComponent<BoxCollider2D>().size.x;
 
         prevGrav = springBody.gravityScale;
@@ -42,6 +45,7 @@ public class MagnetBehavior : MonoBehaviour {
         prevLinDrag = springBody.drag;
         prevMass = springBody.mass;
         rotation = GameObject.Find("spring").GetComponent<Transform>().rotation;
+        respawnTimer = new Stopwatch();
     }
 
     void Update () {
@@ -49,6 +53,17 @@ public class MagnetBehavior : MonoBehaviour {
         {
             ResetValues();
         }
+
+        if (respawnTimer.IsRunning && respawnTimer.ElapsedMilliseconds > 2000)
+        {
+            if (levelManager != null)
+            {
+                ResetValues();
+                levelManager.Kill();
+                respawnTimer.Stop();
+            }
+        }
+        
 
         if (CalcDistance() <= magnetStrength && Aligned() && joint.enabled == false)
         {
@@ -145,7 +160,15 @@ public class MagnetBehavior : MonoBehaviour {
 
     private void Pull()
     {
-        joint.distance -= 0.005f;
+        if (joint.distance > 0.005f)
+        {
+            joint.distance -= 0.005f;
+        }
+        else if (joint.distance == 0.005f && !respawnTimer.IsRunning)
+        {
+            respawnTimer.Reset();
+            respawnTimer.Start();
+        }
     }
 
 

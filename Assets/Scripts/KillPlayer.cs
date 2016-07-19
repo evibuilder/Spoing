@@ -5,18 +5,14 @@ using System.Collections;
 public class KillPlayer : MonoBehaviour
 {
 
-    public int numOfLives = 3;
     public LevelManager levelManager;
-    public Text displayLives;
 
     private int currentLives;
-
 
     // Use this for initialization
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        currentLives = numOfLives;
     }
 
     // Update is called once per frame
@@ -24,31 +20,38 @@ public class KillPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Kill();
+            levelManager.Kill();
         }
-
-        if(displayLives != null)
-            displayLives.text = "Lives: " + currentLives.ToString();
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "spring" || col.name == "ball")
+        if(gameObject.name == "PuffSprite")
         {
-            Kill();
+            if (col.name == "spring" || col.name == "ball")
+            {
+                levelManager.Kill();
+            }
         }
-    }
+        else if(gameObject.name == "bug")
+        {
+            
 
-    public void Kill()
-    {
-        currentLives--;
+            if (col.name == "spring")
+            {
+                levelManager.Kill();
+            }
+            else if(col.name == "bug")
+            {
+                bool falling = col.GetComponent<BallController>().IsFalling();
+                bool launched = col.GetComponent<BallController>().IsLaunched();
 
-        if(displayLives != null)
-            displayLives.text = "Lives: " + currentLives.ToString();
+                Debug.Log("falling is:" + falling);
+                Debug.Log("launched is:" + launched);
 
-        if (currentLives == 0)
-            levelManager.GameOver();
-        else
-            levelManager.RespawnPlayer();
+                if(!falling && !launched)
+                    levelManager.Kill();
+            }
+        }
     }
 }

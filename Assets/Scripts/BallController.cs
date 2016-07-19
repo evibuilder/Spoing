@@ -23,6 +23,7 @@ public class BallController : MonoBehaviour
     private bool swinging;
     private float originY;
     private float currentY;
+    private bool beingLaunched;
     private Stopwatch timer;
     private float currentSwingLength;
 
@@ -42,6 +43,7 @@ public class BallController : MonoBehaviour
         isActive = false;
         falling = false;
         swinging = false;
+        beingLaunched = false;
 
         lineSprite.enabled = false;
 
@@ -259,5 +261,20 @@ public class BallController : MonoBehaviour
 
         if (topOfBall < botOfSpring) return true;
         else return false;
+    }
+
+    public bool IsFalling()
+    {
+        return falling;
+    }
+
+    public bool IsLaunched()
+    {
+        return beingLaunched;
+    }
+
+    public void SetLaunched(bool value)
+    {
+        beingLaunched = value;
     }
 }

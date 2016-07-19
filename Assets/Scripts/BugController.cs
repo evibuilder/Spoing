@@ -62,4 +62,19 @@ public class BugController : MonoBehaviour {
             moveRight = true;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name == "ball")
+        {
+            bool falling = col.GetComponent<BallController>().IsFalling();
+            bool launched = col.GetComponent<BallController>().IsLaunched();
+
+            if(falling || launched)
+            {
+                GetComponent<BoxCollider2D>().isTrigger = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+    }
 }

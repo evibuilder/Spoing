@@ -11,10 +11,13 @@ public class LevelManager : MonoBehaviour {
 	public GameManager gameManager;
     public Text winText;
     public Text loseText;
+    public Text LivesText;
+    public int NumberOfLives = 3;
 
 	private SpringController spring;
 	private BallController ball;
     private Stopwatch timer;
+    private int currentLives;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +26,10 @@ public class LevelManager : MonoBehaviour {
 		gameManager = FindObjectOfType<GameManager> ();
         winText.enabled = false;
         loseText.enabled = false;
+
+        currentLives = NumberOfLives;
+        LivesText.enabled = true;
+        LivesText.text = "Lives: " + currentLives.ToString();
         timer = new Stopwatch();
 	}
 	
@@ -57,5 +64,22 @@ public class LevelManager : MonoBehaviour {
         loseText.text = "Level Failed";
         loseText.enabled = true;
         gameManager.RestartLevel();
+    }
+
+    public void Kill()
+    {
+        UnityEngine.Debug.Log("kill has been called");
+
+        currentLives--;
+
+        if (LivesText != null)
+        {
+            LivesText.text = "Lives: " + currentLives.ToString();
+        }
+
+        if (currentLives == 0)
+            GameOver();
+        else
+            RespawnPlayer();
     }
 }

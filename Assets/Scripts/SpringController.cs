@@ -20,12 +20,14 @@ public class SpringController : MonoBehaviour
     private float launchDistance;
     private Quaternion originalRotation;
     private Quaternion newRotation;
+    private Rigidbody2D ballBody;
 
     void Start()
     {
         _controller = gameObject.GetComponent<CharacterController2D>();
         timer = new Stopwatch();
         jumpTimer = new Stopwatch();
+        ballBody = GameObject.Find("ball").GetComponent<Rigidbody2D>();
 
         chargingUp = false;
         isActive = true;
@@ -77,18 +79,27 @@ public class SpringController : MonoBehaviour
                 timer.Stop();
                 launching = false;
 
-                CharacterController2D _ballController = GameObject.Find("ball").GetComponent<CharacterController2D>();
+                Vector3 power;
+                power.x = 20;
+                power.y = 1;
+                power.z = 0;
 
-                Vector3 power = _ballController.velocity;
+                if (transform.position.x > ballBody.transform.position.x)
+                {
+                    power *= -1;
+                }
 
-                power.x = Mathf.Sqrt((timer.ElapsedMilliseconds / 1000f) * 4f * jumpHeight * -gravity);
-                _ballController.move(power * Time.deltaTime);
+                ballBody.gravityScale = 1;
+                ballBody.mass = 5;
+                ballBody.isKinematic = false;
+                ballBody.AddForce(power * 25f * (timer.ElapsedMilliseconds / 1000f), ForceMode2D.Impulse);
 
-
-                transform.Rotate(0, 0, 90);
+                transform.rotation = Quaternion.Slerp(newRotation, originalRotation, Time.time * 1f);
 
                 isActive = false;
                 GameObject.Find("ball").GetComponent<BallController>().SendMessage("Activate");
+                GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetLaunched", true);
+
                 GameObject.Find("Main Camera").SendMessage("SwitchCamera");
             }
         }
