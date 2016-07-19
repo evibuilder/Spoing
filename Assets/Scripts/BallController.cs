@@ -97,9 +97,6 @@ public class BallController : MonoBehaviour
                 swinging = true;
 
                 joint.enabled = true;
-
-                springOriginX = GameObject.Find("spring").GetComponent<Transform>().position.x;
-                springOriginY = GameObject.Find("spring").GetComponent<Transform>().position.y;
             }
         }
 
@@ -243,4 +240,8 @@ public class BallController : MonoBehaviour
         springTransform.localScale.Set(currXScale, sizeY, currZScale);
     }
 
+    public void Activate()
+    {
+        isActive = true;
+    }
 }

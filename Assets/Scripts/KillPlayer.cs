@@ -1,25 +1,54 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
-public class KillPlayer : MonoBehaviour {
+public class KillPlayer : MonoBehaviour
+{
 
-	public LevelManager levelManager;
-	// Use this for initialization
-	void Start () {
-		levelManager = FindObjectOfType<LevelManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public int numOfLives = 3;
+    public LevelManager levelManager;
+    public Text displayLives;
 
-	void OnTriggerEnter2D(Collider2D box)
-	{
-		if (box.name == "spring" || box.name == "ball") {
-			levelManager.RespawnPlayer();
-		} 
+    private int currentLives;
 
-	}
-		
+
+    // Use this for initialization
+    void Start()
+    {
+        levelManager = FindObjectOfType<LevelManager>();
+        currentLives = numOfLives;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Kill();
+        }
+
+        if(displayLives != null)
+            displayLives.text = "Lives: " + currentLives.ToString();
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name == "spring" || col.name == "ball")
+        {
+            Kill();
+        }
+    }
+
+    public void Kill()
+    {
+        currentLives--;
+
+        if(displayLives != null)
+            displayLives.text = "Lives: " + currentLives.ToString();
+
+        if (currentLives == 0)
+            levelManager.GameOver();
+        else
+            levelManager.RespawnPlayer();
+    }
 }
