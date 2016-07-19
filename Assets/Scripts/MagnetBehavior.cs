@@ -18,7 +18,6 @@ public class MagnetBehavior : MonoBehaviour {
     private DistanceJoint2D joint;
     private Rigidbody2D springBody;
     private CharacterController2D springController;
-    private Stopwatch timer;
     private float prevGrav;
     private float prevAngDrag;
     private float prevLinDrag;
@@ -37,7 +36,6 @@ public class MagnetBehavior : MonoBehaviour {
         springController = GameObject.Find("spring").GetComponent<CharacterController2D>();
 
         magnetWidth = gameObject.GetComponent<BoxCollider2D>().size.x;
-        timer = new Stopwatch();
 
         prevGrav = springBody.gravityScale;
         prevAngDrag = springBody.angularDrag;

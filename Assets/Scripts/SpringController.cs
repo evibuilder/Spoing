@@ -12,7 +12,6 @@ public class SpringController : MonoBehaviour
 
     private CharacterController2D _controller;
     private SpringJoint2D joint;
-    private Rigidbody2D ballBody;
     private Stopwatch timer;
     private Stopwatch jumpTimer;
     private bool chargingUp;
@@ -25,7 +24,6 @@ public class SpringController : MonoBehaviour
     void Start()
     {
         _controller = gameObject.GetComponent<CharacterController2D>();
-        ballBody = GameObject.Find("ball").GetComponent<Rigidbody2D>();
         timer = new Stopwatch();
         jumpTimer = new Stopwatch();
         chargingUp = false;
@@ -58,6 +56,7 @@ public class SpringController : MonoBehaviour
                 originalRotation = transform.rotation;
                 newRotation = Quaternion.Euler(0, 0, 270);
                 transform.rotation = Quaternion.Slerp(originalRotation, newRotation, Time.time * 1f);
+
             }
         }
         else if (isActive && Input.GetKeyDown(KeyCode.E) && launching)

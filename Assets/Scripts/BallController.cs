@@ -10,6 +10,8 @@ public class BallController : MonoBehaviour
     public float jumpHeight = 2;
     public float maxSwingLength = 6;
     public float minSwingLength = 1;
+    public LineRenderer lineSprite;
+
 
     private CharacterController2D _controller;
     private DistanceJoint2D joint;
@@ -23,8 +25,7 @@ public class BallController : MonoBehaviour
     private float currentY;
     private Stopwatch timer;
     private float currentSwingLength;
-    private float springOriginX;
-    private float springOriginY;
+
 
 
     void Start()
@@ -37,14 +38,13 @@ public class BallController : MonoBehaviour
         timer = new Stopwatch();
         springTransform = GameObject.Find("spring").GetComponent<Transform>();
 
-        currentSwingLength = (maxSwingLength - minSwingLength) / 2;
-
-        springOriginX = GameObject.Find("spring").GetComponent<Transform>().position.x;
-        springOriginY = GameObject.Find("spring").GetComponent<Transform>().position.y;
 
         isActive = false;
         falling = false;
         swinging = false;
+
+        lineSprite.enabled = false;
+
     }
 
     void Update()
@@ -78,7 +78,7 @@ public class BallController : MonoBehaviour
 
         if (isActive && Input.GetKeyDown(KeyCode.E))
         {
-            if (CalcDistance() <= maxSwingLength)
+            if (CalcDistance() <= maxSwingLength && SpringAbove())
             {
                 joint.connectedBody = springBody;
 
@@ -88,31 +88,34 @@ public class BallController : MonoBehaviour
 
                 joint.connectedAnchor = springPos;
 
+                currentSwingLength = CalcDistance();
                 joint.distance = currentSwingLength;
 
                 _controller.enabled = false;
                 ballBody.isKinematic = false;
-                ballBody.gravityScale = 1f;
+                ballBody.gravityScale = 2f;
+                ballBody.mass = 2f;
 
                 swinging = true;
 
                 joint.enabled = true;
+
+                LineRendererSetup();
             }
         }
 
-        if (isActive && swinging && Input.GetKeyDown(KeyCode.W))
+        if (isActive && swinging && Input.GetKey(KeyCode.W))
         {
-            currentSwingLength -= 0.25f;
+            currentSwingLength -= 0.05f;
 
             if (currentSwingLength <= minSwingLength)
             {
                 currentSwingLength = minSwingLength;
             }
         }
-        else if (isActive && swinging && Input.GetKeyDown(KeyCode.S))
+        else if (isActive && swinging && Input.GetKey(KeyCode.S))
         {
-            currentSwingLength += 0.25f;
-
+            currentSwingLength += 0.05f;
             if (currentSwingLength >= maxSwingLength)
             {
                 currentSwingLength = maxSwingLength;
@@ -124,7 +127,7 @@ public class BallController : MonoBehaviour
             joint.distance = currentSwingLength;
             ballBody.isKinematic = false;
 
-            //UpdateSprite();
+            LineRendererUpdate();
         }
 
         if (isActive && Input.GetKeyUp(KeyCode.Space) && swinging)
@@ -135,6 +138,7 @@ public class BallController : MonoBehaviour
             ballBody.isKinematic = true;
 
             joint.enabled = false;
+            lineSprite.enabled = false;
 
             swinging = false;
 
@@ -220,28 +224,40 @@ public class BallController : MonoBehaviour
         return Mathf.Sqrt(Mathf.Pow(x1 - x2, 2) + Mathf.Pow(y1 - y2, 2));
     }
 
-    void UpdateSprite()
+    void LineRendererSetup()
     {
-        float x1 = springOriginX;
-        float y1 = springOriginY;
-        float x2 = transform.position.x;
-        float y2 = transform.position.y;
+        lineSprite.SetColors(Color.black, Color.black);
+        lineSprite.SetWidth(0.5f, 1f);
+        lineSprite.sortingLayerName = "default";
+        lineSprite.enabled = true;
+    }
 
-        float midX = (x1 + x2) / 2;
-        float midY = (y1 + y2) / 2;
+    void LineRendererUpdate()
+    {
+        Vector3[] points = new Vector3[2];
+        points[0].Set(springTransform.position.x, springTransform.position.y, springTransform.position.z);
+        points[1].Set(transform.position.x, transform.position.y, transform.position.z);
 
-        float sizeY = y2 - springOriginY;
-
-        springTransform.position.Set(midX, midY, 0);
-
-        float currXScale = springTransform.localScale.x;
-        float currZScale = springTransform.localScale.z;
-
-        springTransform.localScale.Set(currXScale, sizeY, currZScale);
+        lineSprite.SetPositions(points);
     }
 
     public void Activate()
     {
         isActive = true;
+    }
+
+    private bool SpringAbove()
+    {
+        float y1;
+        float y2;
+
+        y1 = GameObject.Find("spring").transform.position.y;
+        y2 = gameObject.transform.position.y;
+
+        float topOfBall = y2 + (gameObject.GetComponent<BoxCollider2D>().size.y / 2);
+        float botOfSpring = y1 - (GameObject.Find("spring").GetComponent<BoxCollider2D>().size.y / 2);
+
+        if (topOfBall < botOfSpring) return true;
+        else return false;
     }
 }
