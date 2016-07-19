@@ -104,7 +104,7 @@ public class BallController : MonoBehaviour
             }
         }
 
-        if (isActive && swinging && Input.GetKey(KeyCode.W))
+        if (isActive && swinging && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)))
         {
             currentSwingLength -= 0.05f;
 
@@ -113,7 +113,7 @@ public class BallController : MonoBehaviour
                 currentSwingLength = minSwingLength;
             }
         }
-        else if (isActive && swinging && Input.GetKey(KeyCode.S))
+        else if (isActive && swinging && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
         {
             currentSwingLength += 0.05f;
             if (currentSwingLength >= maxSwingLength)

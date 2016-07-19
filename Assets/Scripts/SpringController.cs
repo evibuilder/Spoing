@@ -9,7 +9,7 @@ public class SpringController : MonoBehaviour
     public float walkSpeed = 3;
     public float jumpHeight = 2;
 
-
+    private float BaseCameraTimer = 460;
     private CharacterController2D _controller;
     private SpringJoint2D joint;
     private Stopwatch timer;
@@ -26,6 +26,7 @@ public class SpringController : MonoBehaviour
         _controller = gameObject.GetComponent<CharacterController2D>();
         timer = new Stopwatch();
         jumpTimer = new Stopwatch();
+
         chargingUp = false;
         isActive = true;
         launchDistance = GetComponent<BoxCollider2D>().size.y;
@@ -149,11 +150,12 @@ public class SpringController : MonoBehaviour
             }
         }
 
-
-
         velocity.y += gravity * Time.deltaTime;
 
-        if (jumpTimer.ElapsedMilliseconds > 700)
+        float delta = 110f * jumpHeight;
+        float cameraTimer = BaseCameraTimer + delta;
+
+        if (jumpTimer.ElapsedMilliseconds > cameraTimer)
         {
             GameObject.Find("Main Camera").SendMessage("SetFollow", true);
         }
