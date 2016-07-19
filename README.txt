@@ -1,19 +1,20 @@
 Welcome to Spoing!
 
 use A/D to move either ball or spring left/right
-use shift to swithc between ball and spring
+use shift to switch between ball and spring
+press R at anytime to respawn, but it will cost you a life
 
-As the ball:
+	As the ball:
 
 The ball cannot jump by itself.
 However, if you land the ball on top of the spring, it will bounce it up.
 
-When in the vicinity of the spring press E to use the spring as a swing.
+When close to and below the spring press E to use the spring as a swing.
 	you can use A/D to increase momentum
 	you can use W/S to increase/decrease length of spring
-	you can use SPACE to let launch ball
+	you can use SPACE to release ball
 	
-As the spring:
+	As the spring:
 
 The spring jumps by itself. 
 However, you can hold down SPACE to "charge up" the jump and launch the spring
