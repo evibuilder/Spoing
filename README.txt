@@ -19,6 +19,10 @@ When close to and below the spring press E to use the spring as a swing.
 The spring jumps by itself. 
 However, you can hold down SPACE to "charge up" the jump and launch the spring
 
+*in progress*
 When right next to the ball you can press E to toggle pinball launch mode
 	you can press E to untoggle it
 	you can hold SPACE to charge up the spring and let go to launch the ball
+
+*bugs*
+platforms not working with ball properly
