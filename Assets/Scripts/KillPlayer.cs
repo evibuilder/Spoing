@@ -35,19 +35,14 @@ public class KillPlayer : MonoBehaviour
         }
         else if(gameObject.name == "bug")
         {
-            
-
             if (col.name == "spring")
             {
                 levelManager.Kill();
             }
-            else if(col.name == "bug")
+            else if(col.name == "ball")
             {
                 bool falling = col.GetComponent<BallController>().IsFalling();
                 bool launched = col.GetComponent<BallController>().IsLaunched();
-
-                Debug.Log("falling is:" + falling);
-                Debug.Log("launched is:" + launched);
 
                 if(!falling && !launched)
                     levelManager.Kill();

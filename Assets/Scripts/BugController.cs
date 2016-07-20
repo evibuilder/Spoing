@@ -73,7 +73,7 @@ public class BugController : MonoBehaviour {
             if(falling || launched)
             {
                 GetComponent<BoxCollider2D>().isTrigger = false;
-                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<Rigidbody2D>().isKinematic = false;
             }
         }
     }

@@ -19,6 +19,13 @@ When close to and below the spring press E to use the spring as a swing.
 The spring jumps by itself. 
 However, you can hold down SPACE to "charge up" the jump and launch the spring
 
+*enemy types*
+Bug: currently represented as a yellow bird, these enemies can kill both the ball
+spring if you are not careful.. the ball can land on it to destroy it or launch at it
+
+Magnets: magnets only affect the spring so be careful not to line up with one and 
+get too close
+
 *in progress*
 When right next to the ball you can press E to toggle pinball launch mode
 	you can press E to untoggle it
@@ -26,3 +33,4 @@ When right next to the ball you can press E to toggle pinball launch mode
 
 *bugs*
 platforms not working with ball properly
+ball launch

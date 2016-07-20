@@ -46,7 +46,6 @@ public class BallController : MonoBehaviour
         beingLaunched = false;
 
         lineSprite.enabled = false;
-
     }
 
     void Update()
@@ -181,22 +180,12 @@ public class BallController : MonoBehaviour
 
         _controller.move(velocity * Time.deltaTime);
 
-        if (_controller.velocity.y < currentY)
-        {
-            falling = true;
-            originY = currentY;
-        }
-        else
-        {
-            falling = false;
-        }
-
         currentY = velocity.y;
     }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "spring" && falling && isActive)
+        if (col.name == "spring" && !_controller.isGrounded)
         {
             Vector3 velocity = _controller.velocity;
 
@@ -265,7 +254,10 @@ public class BallController : MonoBehaviour
 
     public bool IsFalling()
     {
-        return falling;
+        if (_controller.isGrounded)
+            return false;
+        else
+            return true;
     }
 
     public bool IsLaunched()

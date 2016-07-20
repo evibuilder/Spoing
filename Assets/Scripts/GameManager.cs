@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void RestartLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(currentScene);
 		//UnityEditor.SceneManagement.EditorSceneManager.LoadScene (UnityEditor.SceneManagement.EditorSceneManager.loadedSceneCount);
 		//EditorSceneManager.LoadScene (EditorSceneManager.loadedSceneCount);
 	}
@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviour {
 	}
     
     public void NextLevel()
-    { 
+    {
+        if(currentScene != SceneManager.sceneCount - 1)
             SceneManager.LoadScene(currentScene + 1);
+        
     }
 
 	public void ExitGame(){

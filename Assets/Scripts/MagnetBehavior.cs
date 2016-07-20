@@ -54,21 +54,19 @@ public class MagnetBehavior : MonoBehaviour {
             ResetValues();
         }
 
-        if (respawnTimer.IsRunning && respawnTimer.ElapsedMilliseconds > 2000)
+        if (respawnTimer != null &&respawnTimer.IsRunning && respawnTimer.ElapsedMilliseconds > 2000)
         {
             if (levelManager != null)
             {
-                ResetValues();
-                levelManager.Kill();
                 respawnTimer.Stop();
+                levelManager.Kill();
+                ResetValues();
             }
         }
         
 
         if (CalcDistance() <= magnetStrength && Aligned() && joint.enabled == false)
         {
-            UnityEngine.Debug.Log("Distance between the two are" + CalcDistance().ToString());
-
             Magnetize();
         }
 
