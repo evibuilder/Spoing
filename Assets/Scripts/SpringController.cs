@@ -2,15 +2,18 @@
 using System.Collections;
 using Prime31;
 using System.Diagnostics;
+using camera;
 
 public class SpringController : MonoBehaviour
 {
     public float gravity = -35f;
     public float walkSpeed = 3;
     public float jumpHeight = 2;
+    public float baseLaunchSpeed = 10f;
 
     private float BaseCameraTimer = 460;
     private CharacterController2D _controller;
+    private CharacterController2D _ballController;
     private SpringJoint2D joint;
     private Stopwatch timer;
     private Stopwatch jumpTimer;
@@ -21,13 +24,16 @@ public class SpringController : MonoBehaviour
     private Quaternion originalRotation;
     private Quaternion newRotation;
     private Rigidbody2D ballBody;
+    private CameraScript _camera;
 
     void Start()
     {
         _controller = gameObject.GetComponent<CharacterController2D>();
+        _ballController = GameObject.Find("ball").GetComponent<CharacterController2D>();
         timer = new Stopwatch();
         jumpTimer = new Stopwatch();
         ballBody = GameObject.Find("ball").GetComponent<Rigidbody2D>();
+        _camera = GameObject.Find("Main Camera").GetComponent<CameraScript>();
 
         chargingUp = false;
         isActive = true;
@@ -36,28 +42,19 @@ public class SpringController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            switch (isActive)
-            {
-                case true:
-                    isActive = false;
-                    break;
-                case false:
-                    isActive = true;
-                    break;
-                default:
-                    break;
-            }
-        }
-
         if (isActive && Input.GetKeyDown(KeyCode.E) && !launching)
         {
             if (CalcDistance() <= launchDistance)
             {
                 launching = true;
                 originalRotation = transform.rotation;
-                newRotation = Quaternion.Euler(0, 0, 270);
+
+                float ballX = GameObject.Find("ball").GetComponent<Transform>().position.x;
+                float springX = gameObject.GetComponent<Transform>().position.x;
+
+                if(springX > ballX) newRotation = Quaternion.Euler(0, 0, 90);
+                else newRotation = Quaternion.Euler(0, 0, 270);
+                
                 transform.rotation = Quaternion.Slerp(originalRotation, newRotation, Time.time * 1f);
 
             }
@@ -79,25 +76,26 @@ public class SpringController : MonoBehaviour
                 timer.Stop();
                 launching = false;
 
-                Vector3 power;
-                power.x = 20;
-                power.y = 1;
-                power.z = 0;
+                Vector3 force = _ballController.velocity;
 
-                if (transform.position.x > ballBody.transform.position.x)
-                {
-                    power *= -1;
+                force.x = Mathf.Sqrt(timer.ElapsedMilliseconds / 1000f) * baseLaunchSpeed;
+                force.y = 5f;
+
+                Transform spring = GetComponent<Transform>();
+                Transform ball = GameObject.Find("ball").GetComponent<Transform>();
+
+                if (ball.position.x < spring.position.x) {
+                    force.x *= -1;
                 }
 
-                ballBody.gravityScale = 1;
-                ballBody.mass = 5;
-                ballBody.isKinematic = false;
-                ballBody.AddForce(power * 25f * (timer.ElapsedMilliseconds / 1000f), ForceMode2D.Impulse);
+                UnityEngine.Debug.Log("initial velocity is " + force.x);
+
+                _ballController.move(force * Time.deltaTime);
 
                 transform.rotation = Quaternion.Slerp(newRotation, originalRotation, Time.time * 1f);
 
                 isActive = false;
-                GameObject.Find("ball").GetComponent<BallController>().SendMessage("Activate");
+                GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetActive", true);
                 GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetLaunched", true);
 
                 GameObject.Find("Main Camera").SendMessage("SwitchCamera");
@@ -107,7 +105,6 @@ public class SpringController : MonoBehaviour
         if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
         {
             this.transform.parent = _controller.ground.transform;
-
         }
         else
         {
@@ -194,6 +191,26 @@ public class SpringController : MonoBehaviour
     public void ChangeGravity(float input)
     {
         gravity = input;
+    }
+
+    public bool IsActive()
+    {
+        return isActive;
+    }
+
+    public void SetActive(bool state)
+    {
+        isActive = state;
+    }
+
+    public bool IsCharging()
+    {
+        return chargingUp;
+    }
+
+    public bool IsLaunching()
+    {
+        return launching;
     }
 
 }

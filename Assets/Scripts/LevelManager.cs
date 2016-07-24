@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Diagnostics;
+using camera;
 
 
 public class LevelManager : MonoBehaviour
@@ -11,20 +12,25 @@ public class LevelManager : MonoBehaviour
     public Text loseText;
     public Text LivesText;
     public int NumberOfLives = 3;
+    
 
-    private SpringController spring;
-    private BallController ball;
     private Stopwatch timer;
     private int currentLives;
+    private SpringController spring;
+    private BallController ball;
+    private CameraScript _camera;
 
     // Use this for initialization
     void Start()
     {
-        spring = FindObjectOfType<SpringController>();
-        ball = FindObjectOfType<BallController>();
         gameManager = FindObjectOfType<GameManager>();
         winText.enabled = false;
         loseText.enabled = false;
+
+        spring = GameObject.Find("spring").GetComponent<SpringController>();
+        ball = GameObject.Find("ball").GetComponent<BallController>();
+        _camera = GameObject.Find("Main Camera").GetComponent<CameraScript>();
+
 
         currentLives = NumberOfLives;
         LivesText.enabled = true;
@@ -35,6 +41,27 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (spring.IsActive())
+            {
+                if(spring.IsCharging() == false && spring.IsLaunching() == false)
+                {
+                    spring.SetActive(false);
+                    ball.SetActive(true);
+                    _camera.SwitchCamera();
+                }
+            }
+            else if (ball.IsActive())
+            {
+                if(ball.IsSwinging() == false)
+                {
+                    ball.SetActive(false);
+                    spring.SetActive(true);
+                    _camera.SwitchCamera();
+                }
+            }
+        }
 
         if (timer != null)
         {

@@ -19,15 +19,12 @@ public class BallController : MonoBehaviour
     private Rigidbody2D ballBody;
     private Transform springTransform;
     private bool isActive;
-    private bool falling;
     private bool swinging;
     private float originY;
     private float currentY;
     private bool beingLaunched;
     private Stopwatch timer;
     private float currentSwingLength;
-
-
 
     void Start()
     {
@@ -39,9 +36,7 @@ public class BallController : MonoBehaviour
         timer = new Stopwatch();
         springTransform = GameObject.Find("spring").GetComponent<Transform>();
 
-
         isActive = false;
-        falling = false;
         swinging = false;
         beingLaunched = false;
 
@@ -60,21 +55,6 @@ public class BallController : MonoBehaviour
         {
             timer.Stop();
             GetComponent<Rigidbody2D>().isKinematic = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            switch (isActive)
-            {
-                case true:
-                    isActive = false;
-                    break;
-                case false:
-                    isActive = true;
-                    break;
-                default:
-                    break;
-            }
         }
 
         if (isActive && Input.GetKeyDown(KeyCode.E))
@@ -162,15 +142,33 @@ public class BallController : MonoBehaviour
             }
         }
 
-
         Vector3 velocity = _controller.velocity;
-        velocity.x = 0;
 
-        if (Input.GetAxis("Horizontal") < 0 && isActive)
+        if(velocity.x < 0 && velocity.x > walkSpeed * -1)
+        {
+            UnityEngine.Debug.Log("being launched set to false");
+            beingLaunched = false;
+        }
+        else if(velocity.x > 0 && velocity.x < walkSpeed)
+        {
+            UnityEngine.Debug.Log("being launched set to false");
+
+            beingLaunched = false;
+        }
+
+        if(!beingLaunched)
+            velocity.x = 0;
+        else if (beingLaunched)
+        {
+            velocity.x *= 0.975f;
+        }
+        UnityEngine.Debug.Log("current velocity is " + velocity.x);
+
+        if (Input.GetAxis("Horizontal") < 0 && isActive && !beingLaunched)
         {
             velocity.x = walkSpeed * -1;
         }
-        else if (Input.GetAxis("Horizontal") > 0 && isActive)
+        else if (Input.GetAxis("Horizontal") > 0 && isActive && !beingLaunched)
         {
             velocity.x = walkSpeed;
         }
@@ -179,23 +177,27 @@ public class BallController : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
 
         _controller.move(velocity * Time.deltaTime);
-
-        currentY = velocity.y;
     }
+
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "spring" && !_controller.isGrounded)
+        if (col.name == "spring" &&  BallAbove())
         {
             Vector3 velocity = _controller.velocity;
+            CharacterController2D _spring = GameObject.Find("spring").GetComponent<CharacterController2D>();
 
             float distanceFallen = originY - _controller.velocity.y;
 
-            velocity.y = Mathf.Sqrt(4f * jumpHeight * -gravity + distanceFallen);
+            velocity.y = Mathf.Sqrt(4f * jumpHeight * -gravity + distanceFallen + _spring.velocity.y);
 
             velocity.y += gravity * Time.deltaTime;
 
             _controller.move(velocity * Time.deltaTime);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("ball collided with " + col.name);
         }
     }
 
@@ -232,11 +234,6 @@ public class BallController : MonoBehaviour
         lineSprite.SetPositions(points);
     }
 
-    public void Activate()
-    {
-        isActive = true;
-    }
-
     private bool SpringAbove()
     {
         float y1;
@@ -249,6 +246,18 @@ public class BallController : MonoBehaviour
         float botOfSpring = y1 - (GameObject.Find("spring").GetComponent<BoxCollider2D>().size.y / 2);
 
         if (topOfBall < botOfSpring) return true;
+        else return false;
+    }
+
+    private bool BallAbove()
+    {
+        float ballY = GetComponent<Transform>().transform.position.y;
+        float springY = GameObject.Find("spring").GetComponent<Transform>().position.y;
+
+        float botOfBall = ballY - (gameObject.GetComponent<BoxCollider2D>().size.y / 2);
+        float topOfSpring = springY + (GameObject.Find("spring").GetComponent<BoxCollider2D>().size.y / 2);
+
+        if (botOfBall >= topOfSpring) return true;
         else return false;
     }
 
@@ -269,4 +278,20 @@ public class BallController : MonoBehaviour
     {
         beingLaunched = value;
     }
+
+    public bool IsActive()
+    {
+        return isActive;
+    }
+
+    public bool IsSwinging()
+    {
+        return swinging;
+    }
+
+    public void SetActive(bool state)
+    {
+        isActive = state;
+    }
+
 }

@@ -20,22 +20,6 @@ namespace camera
 
         void Update()
         {
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                switch (activeCamera)
-                {
-                    case 1:
-                        activeCamera = 2;
-                        break;
-                    case 2:
-                        activeCamera = 1;
-                        SetFollow(true);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
             if (activeCamera == 1)
             {
                 if (follow)
@@ -65,6 +49,7 @@ namespace camera
                     break;
                 case 2:
                     activeCamera = 1;
+                    SetFollow(true);
                     break;
                 default: break;
             }
