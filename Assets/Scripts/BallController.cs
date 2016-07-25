@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
 {
     public float gravity = -35f;
     public float walkSpeed = 3;
-    public float jumpHeight = 2;
+    public float jumpHeight = 4;
     public float maxSwingLength = 6;
     public float minSwingLength = 1;
     public LineRenderer lineSprite;
@@ -35,7 +35,7 @@ public class BallController : MonoBehaviour
         ballBody = gameObject.GetComponent<Rigidbody2D>();
         timer = new Stopwatch();
         springTransform = GameObject.Find("spring").GetComponent<Transform>();
-
+        originY = 0;
         isActive = false;
         swinging = false;
         beingLaunched = false;
@@ -45,6 +45,11 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
+        if(!_controller.isGrounded && originY == 0)
+        {
+            originY = transform.position.y - (GetComponent<BoxCollider2D>().size.y / 2);
+        }
+
         if (timer != null && !timer.IsRunning && GetComponent<Rigidbody2D>().isKinematic == false)
         {
             timer.Reset();
@@ -124,10 +129,23 @@ public class BallController : MonoBehaviour
             swinging = false;
 
             Vector3 momentum = _controller.velocity;
-            momentum.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
+            momentum.y = Mathf.Sqrt(2f * jumpHeight * -gravity + momentum.x);
             momentum.y += gravity * Time.deltaTime;
             _controller.move(momentum * Time.deltaTime);
         }
+        /*
+        if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
+        {
+            this.transform.parent = _controller.ground.transform;
+
+        }
+        else
+        {
+            if (this.transform.parent != null)
+            {
+                transform.parent = null;
+            }
+        } */
 
         if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
         {
@@ -146,7 +164,6 @@ public class BallController : MonoBehaviour
 
         if(velocity.x < 0 && velocity.x > walkSpeed * -1)
         {
-            UnityEngine.Debug.Log("being launched set to false");
             beingLaunched = false;
         }
         else if(velocity.x > 0 && velocity.x < walkSpeed)
@@ -162,15 +179,20 @@ public class BallController : MonoBehaviour
         {
             velocity.x *= 0.975f;
         }
-        UnityEngine.Debug.Log("current velocity is " + velocity.x);
 
         if (Input.GetAxis("Horizontal") < 0 && isActive && !beingLaunched)
         {
-            velocity.x = walkSpeed * -1;
+            if (!swinging)
+                velocity.x += walkSpeed * -1;
+            else
+                velocity.x += walkSpeed * -1 * 2;
         }
         else if (Input.GetAxis("Horizontal") > 0 && isActive && !beingLaunched)
         {
-            velocity.x = walkSpeed;
+            if (!swinging)
+                velocity.x += walkSpeed;
+            else
+                velocity.x += walkSpeed * 2;
         }
 
         if (!swinging && !_controller.isGrounded)
@@ -184,20 +206,29 @@ public class BallController : MonoBehaviour
     {
         if (col.name == "spring" &&  BallAbove())
         {
+            UnityEngine.Debug.Log("entered the jump");
+
             Vector3 velocity = _controller.velocity;
             CharacterController2D _spring = GameObject.Find("spring").GetComponent<CharacterController2D>();
 
-            float distanceFallen = originY - _controller.velocity.y;
+            float topOfSpring = col.transform.position.y + (col.GetComponent<BoxCollider2D>().size.y / 2); 
 
-            velocity.y = Mathf.Sqrt(4f * jumpHeight * -gravity + distanceFallen + _spring.velocity.y);
+            float distanceFallen = originY - topOfSpring;
+
+            float force = 0;
+
+            if (_spring.velocity.y > 0)
+                force = Mathf.Sqrt(4f * jumpHeight * -gravity + distanceFallen + _spring.velocity.y);
+            else
+                force = Mathf.Sqrt(4f * jumpHeight * -gravity + distanceFallen + (_spring.velocity.y * -1));
+
+            velocity.y = force;
 
             velocity.y += gravity * Time.deltaTime;
 
             _controller.move(velocity * Time.deltaTime);
-        }
-        else
-        {
-            UnityEngine.Debug.Log("ball collided with " + col.name);
+
+            originY = 0;
         }
     }
 
@@ -256,6 +287,7 @@ public class BallController : MonoBehaviour
 
         float botOfBall = ballY - (gameObject.GetComponent<BoxCollider2D>().size.y / 2);
         float topOfSpring = springY + (GameObject.Find("spring").GetComponent<BoxCollider2D>().size.y / 2);
+        topOfSpring -= 2;
 
         if (botOfBall >= topOfSpring) return true;
         else return false;
