@@ -1,0 +1,500 @@
+fileFormatVersion: 2
+guid: fbbf6b7361f5646eea574cc53e5b1d01
+timeCreated: 1469583143
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spring main_0
+    21300002: spring main_1
+    21300004: spring main_2
+    21300006: spring main_3
+    21300008: spring main_4
+    21300010: spring main_5
+    21300012: spring main_6
+    21300014: spring main_7
+    21300016: spring main_8
+    21300018: spring main_9
+    21300020: spring main_10
+    21300022: spring main_11
+    21300024: spring main_12
+    21300026: spring main_13
+    21300028: spring main_14
+    21300030: spring main_15
+    21300032: spring main_16
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: spring main_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3537
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -78.5, y: 115.5}
+        - {x: -78.5, y: -126.5}
+        - {x: 84.5, y: -126.5}
+        - {x: 95.5, y: -119.5}
+        - {x: 95.5, y: 134.5}
+        - {x: -36.5, y: 134.5}
+        - {x: -71.5, y: 122.5}
+    - name: spring main_1
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3537
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 78, y: -135.5}
+        - {x: 78, y: -139.5}
+        - {x: 84, y: -139.5}
+        - {x: 84, y: -135.5}
+        - {x: 82, y: -133.5}
+        - {x: 80, y: -133.5}
+      - - {x: -77, y: 109.5}
+        - {x: -77, y: -120.5}
+        - {x: -72, y: -124.5}
+        - {x: 98, y: -124.5}
+        - {x: 98, y: 88.5}
+        - {x: 80, y: 109.5}
+    - name: spring main_2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 3537
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79.5, y: 89.5}
+        - {x: -45.5, y: 89.5}
+        - {x: -76.5, y: 81.5}
+        - {x: -76.5, y: -2.5}
+        - {x: -70.5, y: -8.5}
+        - {x: -76.5, y: -36.5}
+        - {x: -76.5, y: -78.5}
+        - {x: -33.5, y: -87.5}
+        - {x: -71.5, y: -84.5}
+        - {x: -76.5, y: -91.5}
+        - {x: -76.5, y: -122.5}
+        - {x: -60.5, y: -126.5}
+        - {x: 67.5, y: -126.5}
+        - {x: 85.5, y: -122.5}
+        - {x: 96.5, y: -96.5}
+        - {x: 96.5, y: 68.5}
+    - name: spring main_3
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 3537
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 96, y: 60.5}
+        - {x: -76, y: 60.5}
+        - {x: -76, y: -126.5}
+        - {x: 81, y: -126.5}
+        - {x: 96, y: -115.5}
+        - {x: 98, y: -111.5}
+        - {x: 98, y: 56.5}
+    - name: spring main_4
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 3537
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: 29.5}
+        - {x: -77.5, y: 29.5}
+        - {x: -77.5, y: -128.5}
+        - {x: 97.5, y: -128.5}
+        - {x: 97.5, y: -4.5}
+        - {x: 77.5, y: 24.5}
+    - name: spring main_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2978
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80.5, y: 25}
+        - {x: -80.5, y: -86}
+        - {x: -74.5, y: -91}
+        - {x: -67.5, y: -93}
+        - {x: -60.5, y: -93}
+        - {x: -59.5, y: -94}
+        - {x: -64.5, y: -93}
+        - {x: -72.5, y: -93}
+        - {x: -78.5, y: -94}
+        - {x: -80.5, y: -109}
+        - {x: -80.5, y: -128}
+        - {x: 97.5, y: -128}
+        - {x: 97.5, y: 25}
+    - name: spring main_6
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 2978
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: -9}
+        - {x: -80, y: -127}
+        - {x: 54, y: -127}
+        - {x: 98, y: -117}
+        - {x: 98, y: -24}
+        - {x: 77, y: -9}
+      - - {x: 78, y: 140}
+        - {x: 79, y: 137}
+        - {x: 82, y: 137}
+        - {x: 84, y: 139}
+        - {x: 84, y: 140}
+    - name: spring main_7
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 2978
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -78.5, y: -14}
+        - {x: -78.5, y: -119}
+        - {x: -63.5, y: -128}
+        - {x: 66.5, y: -128}
+        - {x: 97.5, y: -120}
+        - {x: 97.5, y: -31}
+        - {x: 84.5, y: -14}
+      - - {x: -95.5, y: -39}
+        - {x: -92.5, y: -38}
+        - {x: -92.5, y: -35}
+        - {x: -95.5, y: -34}
+        - {x: -97.5, y: -36}
+    - name: spring main_8
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 2978
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 78, y: -27}
+        - {x: 48, y: -22}
+        - {x: -72, y: -22}
+        - {x: -77, y: -34}
+        - {x: -77, y: -131}
+        - {x: 59, y: -131}
+        - {x: 79, y: -130}
+        - {x: 98, y: -114}
+        - {x: 98, y: -54}
+        - {x: 96, y: -44}
+      - - {x: -97, y: -75}
+        - {x: -94, y: -74}
+        - {x: -94, y: -66}
+        - {x: -96, y: -64}
+        - {x: -97, y: -64}
+    - name: spring main_9
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2978
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77.5, y: -14}
+        - {x: -77.5, y: -128}
+        - {x: 97.5, y: -128}
+        - {x: 97.5, y: -28}
+        - {x: 85.5, y: -14}
+      - - {x: -97.5, y: -69}
+        - {x: -97.5, y: -82}
+        - {x: -96.5, y: -82}
+        - {x: -93.5, y: -79}
+        - {x: -93.5, y: -72}
+        - {x: -96.5, y: -69}
+      - - {x: -94.5, y: -39}
+        - {x: -91.5, y: -38}
+        - {x: -91.5, y: -35}
+        - {x: -94.5, y: -34}
+        - {x: -96.5, y: -36}
+    - name: spring main_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2419
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -81.5, y: -7.5}
+        - {x: -81.5, y: -119.5}
+        - {x: -65.5, y: -125.5}
+        - {x: 97.5, y: -125.5}
+        - {x: 97.5, y: -15.5}
+        - {x: 80.5, y: -7.5}
+    - name: spring main_11
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 2419
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 73, y: -139.5}
+        - {x: 73, y: -137.5}
+        - {x: 70, y: -136.5}
+        - {x: 68, y: -139.5}
+      - - {x: -78, y: 29.5}
+        - {x: -78, y: -128.5}
+        - {x: 88, y: -128.5}
+        - {x: 94, y: -127.5}
+        - {x: 98, y: -108.5}
+        - {x: 98, y: 16.5}
+        - {x: 91, y: 29.5}
+    - name: spring main_12
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 2419
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97.5, y: -22.5}
+        - {x: 97.5, y: 58.5}
+        - {x: -76.5, y: 58.5}
+        - {x: -76.5, y: -126.5}
+        - {x: 83.5, y: -126.5}
+        - {x: 97.5, y: -102.5}
+        - {x: 97.5, y: -26.5}
+        - {x: 94.5, y: -24.5}
+    - name: spring main_13
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 2419
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: 89.5}
+        - {x: -75, y: 75.5}
+        - {x: -75, y: 56.5}
+        - {x: -71, y: 52.5}
+        - {x: -28, y: 47.5}
+        - {x: -10, y: 45.5}
+        - {x: 9, y: 43.5}
+        - {x: 19, y: 42.5}
+        - {x: -67, y: 24.5}
+        - {x: -75, y: 4.5}
+        - {x: -75, y: -1.5}
+        - {x: -68, y: -6.5}
+        - {x: -54, y: -10.5}
+        - {x: -70, y: -43.5}
+        - {x: -75, y: -55.5}
+        - {x: -75, y: -74.5}
+        - {x: -72, y: -75.5}
+        - {x: -22, y: -81.5}
+        - {x: -70, y: -84.5}
+        - {x: -75, y: -97.5}
+        - {x: -75, y: -126.5}
+        - {x: 90, y: -126.5}
+        - {x: 98, y: -106.5}
+        - {x: 98, y: 65.5}
+        - {x: 79, y: 89.5}
+    - name: spring main_14
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2419
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -56.5}
+        - {x: 73.5, y: -33.5}
+        - {x: 97.5, y: -20.5}
+        - {x: 97.5, y: -4.5}
+        - {x: 94.5, y: 3.5}
+        - {x: 97.5, y: 10.5}
+        - {x: 97.5, y: 83.5}
+        - {x: 89.5, y: 114.5}
+        - {x: -13.5, y: 114.5}
+        - {x: -68.5, y: 105.5}
+        - {x: -74.5, y: 97.5}
+        - {x: -75.5, y: 92.5}
+        - {x: -75.5, y: 80.5}
+        - {x: -50.5, y: 64.5}
+        - {x: -67.5, y: 35.5}
+        - {x: -73.5, y: 23.5}
+        - {x: -73.5, y: 8.5}
+        - {x: -54.5, y: 0.5}
+        - {x: -74.5, y: -48.5}
+        - {x: -75.5, y: -52.5}
+        - {x: -75.5, y: -69.5}
+        - {x: -66.5, y: -72.5}
+        - {x: -41.5, y: -76.5}
+        - {x: -75.5, y: -92.5}
+        - {x: -75.5, y: -127.5}
+        - {x: 97.5, y: -127.5}
+        - {x: 97.5, y: -70.5}
+        - {x: 65.5, y: -60.5}
+      - - {x: -82.5, y: -95.5}
+        - {x: -79.5, y: -94.5}
+        - {x: -79.5, y: -91.5}
+        - {x: -82.5, y: -90.5}
+        - {x: -84.5, y: -92.5}
+    - name: spring main_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1860
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 76.5, y: -67}
+        - {x: 94.5, y: -22}
+        - {x: 97.5, y: -2}
+        - {x: 97.5, y: 0}
+        - {x: 85.5, y: 10}
+        - {x: 46.5, y: 18}
+        - {x: 14.5, y: 24}
+        - {x: 2.5, y: 26}
+        - {x: 88.5, y: 44}
+        - {x: 97.5, y: 56}
+        - {x: 97.5, y: 98}
+        - {x: 80.5, y: 130}
+        - {x: 10.5, y: 130}
+        - {x: -66.5, y: 120}
+        - {x: -78.5, y: 111}
+        - {x: -78.5, y: -84}
+        - {x: -44.5, y: -76}
+        - {x: 8.5, y: -85}
+        - {x: 22.5, y: -87}
+        - {x: -64.5, y: -89}
+        - {x: -78.5, y: -95}
+        - {x: -78.5, y: -122}
+        - {x: -76.5, y: -127}
+        - {x: 75.5, y: -127}
+        - {x: 93.5, y: -111}
+        - {x: 97.5, y: -87}
+        - {x: 97.5, y: -77}
+    - name: spring main_16
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1860
+        width: 389
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97, y: 140}
+        - {x: -78, y: 140}
+        - {x: -78, y: -60}
+        - {x: -73, y: -67}
+        - {x: -51, y: -76}
+        - {x: -71, y: -90}
+        - {x: -78, y: -100}
+        - {x: -78, y: -112}
+        - {x: -73, y: -120}
+        - {x: -34, y: -126}
+        - {x: 27, y: -126}
+        - {x: 52, y: -125}
+        - {x: 90, y: -115}
+        - {x: 97, y: -109}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
