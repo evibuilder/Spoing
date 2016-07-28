@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: 1ab1e51323215438fa74cf64b346a3cc
+timeCreated: 1469744007
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: tutorial stuff_0
+    21300002: tutorial stuff_1
+    21300004: tutorial stuff_2
+    21300006: tutorial stuff_3
+    21300008: tutorial stuff_4
+    21300010: tutorial stuff_5
+    21300012: tutorial stuff_6
+    21300014: tutorial stuff_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: tutorial stuff_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6782
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 231.5, y: -4}
+        - {x: 231.5, y: 27}
+        - {x: 213.5, y: 45}
+        - {x: 217.5, y: 85}
+        - {x: 201.5, y: 131}
+        - {x: 179.5, y: 149}
+        - {x: 141.5, y: 154}
+        - {x: 108.5, y: 154}
+        - {x: -31.5, y: 129}
+        - {x: -72.5, y: 129}
+        - {x: -134.5, y: 111}
+        - {x: -134.5, y: 66}
+        - {x: -118.5, y: 37}
+        - {x: -134.5, y: 32}
+        - {x: -134.5, y: 25}
+        - {x: -107.5, y: -58}
+        - {x: -101.5, y: -65}
+        - {x: -20.5, y: -48}
+        - {x: -2.5, y: -83}
+        - {x: 13.5, y: -141}
+        - {x: 20.5, y: -147}
+        - {x: 55.5, y: -147}
+        - {x: 71.5, y: -130}
+        - {x: 41.5, y: -37}
+        - {x: 229.5, y: -6}
+    - name: tutorial stuff_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5372
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -98.5, y: -76.5}
+        - {x: -52.5, y: -75.5}
+        - {x: -18.5, y: -71.5}
+        - {x: 69.5, y: -68.5}
+        - {x: 142.5, y: -58.5}
+        - {x: 176.5, y: -77.5}
+        - {x: 197.5, y: -175.5}
+        - {x: 234.5, y: -160.5}
+        - {x: 236.5, y: -154.5}
+        - {x: 236.5, y: -136.5}
+        - {x: 214.5, y: -79.5}
+        - {x: 218.5, y: -43.5}
+        - {x: 217.5, y: -3.5}
+        - {x: 219.5, y: 60.5}
+        - {x: 188.5, y: 62.5}
+        - {x: 177.5, y: 89.5}
+        - {x: 204.5, y: 99.5}
+        - {x: 212.5, y: 108.5}
+        - {x: 196.5, y: 150.5}
+        - {x: 182.5, y: 153.5}
+        - {x: 40.5, y: 153.5}
+        - {x: -17.5, y: 151.5}
+        - {x: -77.5, y: 146.5}
+        - {x: -169.5, y: 145.5}
+        - {x: -199.5, y: 141.5}
+        - {x: -214.5, y: 135.5}
+        - {x: -214.5, y: 87.5}
+        - {x: -212.5, y: 47.5}
+        - {x: -210.5, y: 15.5}
+        - {x: -202.5, y: -58.5}
+        - {x: -198.5, y: -78.5}
+        - {x: -193.5, y: -78.5}
+        - {x: -188.5, y: -175.5}
+        - {x: -186.5, y: -176.5}
+        - {x: -183.5, y: -176.5}
+        - {x: -170.5, y: -173.5}
+        - {x: -148.5, y: -158.5}
+        - {x: -147.5, y: -136.5}
+        - {x: -152.5, y: -136.5}
+    - name: tutorial stuff_2
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 5372
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -174.5, y: 139.5}
+        - {x: -176.5, y: 137.5}
+        - {x: -176.5, y: 134.5}
+        - {x: -174.5, y: 132.5}
+        - {x: -172.5, y: 132.5}
+        - {x: -170.5, y: 134.5}
+        - {x: -170.5, y: 137.5}
+        - {x: -172.5, y: 139.5}
+    - name: tutorial stuff_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3962
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64.5, y: -75}
+        - {x: 42.5, y: -68}
+        - {x: 63.5, y: -65}
+        - {x: 75.5, y: -63}
+        - {x: 166.5, y: -59}
+        - {x: 190.5, y: -140}
+        - {x: 197.5, y: -170}
+        - {x: 222.5, y: -164}
+        - {x: 236.5, y: -148}
+        - {x: 236.5, y: -140}
+        - {x: 210.5, y: -65}
+        - {x: 218.5, y: -62}
+        - {x: 219.5, y: -1}
+        - {x: 218.5, y: 55}
+        - {x: 212.5, y: 64}
+        - {x: 174.5, y: 59}
+        - {x: 177.5, y: 92}
+        - {x: 211.5, y: 101}
+        - {x: 205.5, y: 148}
+        - {x: 193.5, y: 154}
+        - {x: 166.5, y: 156}
+        - {x: 106.5, y: 156}
+        - {x: 85.5, y: 153}
+        - {x: -32.5, y: 152}
+        - {x: -58.5, y: 149}
+        - {x: -168.5, y: 149}
+        - {x: -213.5, y: 144}
+        - {x: -214.5, y: 136}
+        - {x: -214.5, y: 99}
+        - {x: -211.5, y: 97}
+        - {x: -213.5, y: 50}
+        - {x: -211.5, y: 18}
+        - {x: -200.5, y: -78}
+        - {x: -192.5, y: -75}
+        - {x: -187.5, y: -172}
+        - {x: -185.5, y: -174}
+        - {x: -171.5, y: -172}
+        - {x: -148.5, y: -156}
+        - {x: -147.5, y: -135}
+        - {x: -119.5, y: -73}
+    - name: tutorial stuff_4
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 3962
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -175.5, y: 141}
+        - {x: -176.5, y: 140}
+        - {x: -176.5, y: 135}
+        - {x: -171.5, y: 135}
+        - {x: -170.5, y: 137}
+        - {x: -170.5, y: 139}
+        - {x: -172.5, y: 141}
+    - name: tutorial stuff_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2552
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 231.5, y: -1.5}
+        - {x: 231.5, y: 25.5}
+        - {x: 223.5, y: 37.5}
+        - {x: 213.5, y: 84.5}
+        - {x: 202.5, y: 101.5}
+        - {x: 198.5, y: 142.5}
+        - {x: 165.5, y: 152.5}
+        - {x: 128.5, y: 156.5}
+        - {x: 102.5, y: 156.5}
+        - {x: 8.5, y: 137.5}
+        - {x: -118.5, y: 120.5}
+        - {x: -134.5, y: 110.5}
+        - {x: -134.5, y: 65.5}
+        - {x: -121.5, y: 43.5}
+        - {x: -133.5, y: 33.5}
+        - {x: -108.5, y: -58.5}
+        - {x: -101.5, y: -62.5}
+        - {x: -15.5, y: -44.5}
+        - {x: 13.5, y: -137.5}
+        - {x: 21.5, y: -144.5}
+        - {x: 52.5, y: -144.5}
+        - {x: 56.5, y: -143.5}
+        - {x: 69.5, y: -127.5}
+        - {x: 61.5, y: -99.5}
+        - {x: 43.5, y: -42.5}
+    - name: tutorial stuff_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1142
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -130.5, y: -71}
+        - {x: -62.5, y: -71}
+        - {x: 36.5, y: -67}
+        - {x: 117.5, y: -57}
+        - {x: 176.5, y: -69}
+        - {x: 199.5, y: -166}
+        - {x: 223.5, y: -164}
+        - {x: 236.5, y: -145}
+        - {x: 236.5, y: -137}
+        - {x: 210.5, y: -63}
+        - {x: 218.5, y: -59}
+        - {x: 219.5, y: -1}
+        - {x: 219.5, y: 52}
+        - {x: 217.5, y: 61}
+        - {x: 213.5, y: 65}
+        - {x: 174.5, y: 73}
+        - {x: 181.5, y: 95}
+        - {x: 204.5, y: 103}
+        - {x: 213.5, y: 114}
+        - {x: 195.5, y: 156}
+        - {x: 163.5, y: 158}
+        - {x: 83.5, y: 158}
+        - {x: -38.5, y: 155}
+        - {x: -165.5, y: 150}
+        - {x: -172.5, y: 150}
+        - {x: -187.5, y: 148}
+        - {x: -213.5, y: 145}
+        - {x: -214.5, y: 141}
+        - {x: -214.5, y: 101}
+        - {x: -213.5, y: 100}
+        - {x: -211.5, y: 20}
+        - {x: -202.5, y: -71}
+        - {x: -197.5, y: -77}
+        - {x: -188.5, y: -171}
+        - {x: -178.5, y: -171}
+        - {x: -171.5, y: -168}
+        - {x: -149.5, y: -152}
+        - {x: -149.5, y: -141}
+        - {x: -150.5, y: -134}
+    - name: tutorial stuff_7
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1142
+        width: 1900
+        height: 1410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -174.5, y: 144}
+        - {x: -176.5, y: 142}
+        - {x: -176.5, y: 139}
+        - {x: -174.5, y: 137}
+        - {x: -172.5, y: 137}
+        - {x: -170.5, y: 139}
+        - {x: -170.5, y: 142}
+        - {x: -172.5, y: 144}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
