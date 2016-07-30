@@ -195,7 +195,7 @@ public class BallController : MonoBehaviour
                 velocity.x += walkSpeed * 2;
         }
 
-        if (!swinging && !_controller.isGrounded)
+		if (!swinging) //&& !_controller.isGrounded)
             velocity.y += gravity * Time.deltaTime;
 
         _controller.move(velocity * Time.deltaTime);

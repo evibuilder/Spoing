@@ -198,7 +198,7 @@ public class MagnetBehavior : MonoBehaviour {
             _controller.move(velocity * Time.deltaTime);
             currDistance += moveSpeed;
         }
-        else if(moveRight == true && currDistance == maxDistance)
+        else if(moveRight == true && currDistance >= maxDistance)
         {
             moveRight = false;
         }
@@ -225,7 +225,7 @@ public class MagnetBehavior : MonoBehaviour {
             _controller.move(velocity * Time.deltaTime);
             currDistance += moveSpeed;
         }
-        else if(moveDown == true && currDistance == maxDistance)
+        else if(moveDown == true && currDistance >= maxDistance)
         {
             moveDown = false;
         }
