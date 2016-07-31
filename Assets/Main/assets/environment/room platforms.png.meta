@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 662a3119ba7794e0a8ee1178cd744775
+timeCreated: 1469991969
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: room platforms_0
+    21300002: room platforms_1
+    21300004: room platforms_2
+    21300006: room platforms_3
+    21300008: room platforms_4
+    21300010: room platforms_5
+    21300012: room platforms_6
+    21300014: room platforms_7
+    21300016: room platforms_8
+    21300018: room platforms_9
+    21300020: room platforms_10
+    21300022: room platforms_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: room platforms_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7239
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 242.5, y: -26.75}
+        - {x: 238.5, y: -24.75}
+        - {x: 231.5, y: -18.75}
+        - {x: 230.5, y: 33.25}
+        - {x: 226.5, y: 47.25}
+        - {x: 232.5, y: 64.25}
+        - {x: 233.5, y: 69.25}
+        - {x: 225.5, y: 74.25}
+        - {x: -78.5, y: 73.25}
+        - {x: -110.5, y: 72.25}
+        - {x: -111.5, y: 74.25}
+        - {x: -148.5, y: 74.25}
+        - {x: -170.5, y: 72.25}
+        - {x: -177.5, y: 69.25}
+        - {x: -183.5, y: 52.25}
+        - {x: -187.5, y: 30.25}
+        - {x: -190.5, y: -2.75}
+        - {x: -190.5, y: -68.75}
+        - {x: -187.5, y: -89.75}
+        - {x: -184.5, y: -90.75}
+        - {x: 203.5, y: -90.75}
+        - {x: 205.5, y: -92.75}
+        - {x: 208.5, y: -92.75}
+        - {x: 212.5, y: -86.75}
+        - {x: 215.5, y: -79.75}
+        - {x: 242.5, y: -37.75}
+    - name: room platforms_1
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 7239
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 244.5, y: -25.75}
+        - {x: 238.5, y: -23.75}
+        - {x: 232.5, y: -11.75}
+        - {x: 233.5, y: 21.25}
+        - {x: 233.5, y: 34.25}
+        - {x: 229.5, y: 61.25}
+        - {x: 236.5, y: 64.25}
+        - {x: 232.5, y: 73.25}
+        - {x: -108.5, y: 73.25}
+        - {x: -108.5, y: 74.25}
+        - {x: -157.5, y: 74.25}
+        - {x: -171.5, y: 71.25}
+        - {x: -176.5, y: 68.25}
+        - {x: -182.5, y: 48.25}
+        - {x: -188.5, y: 8.25}
+        - {x: -188.5, y: -59.75}
+        - {x: -187.5, y: -69.75}
+        - {x: -185.5, y: -85.75}
+        - {x: -183.5, y: -90.75}
+        - {x: 205.5, y: -90.75}
+        - {x: 206.5, y: -92.75}
+        - {x: 208.5, y: -92.75}
+        - {x: 212.5, y: -90.75}
+        - {x: 220.5, y: -73.75}
+        - {x: 242.5, y: -41.75}
+        - {x: 244.5, y: -35.75}
+    - name: room platforms_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6286
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 240.5, y: -36}
+        - {x: 240.5, y: 51}
+        - {x: 238.5, y: 62}
+        - {x: 231.5, y: 73}
+        - {x: 225.5, y: 74}
+        - {x: -42.5, y: 74}
+        - {x: -121.5, y: 73}
+        - {x: -136.5, y: 72}
+        - {x: -162.5, y: 71}
+        - {x: -172.5, y: 67}
+        - {x: -179.5, y: 61}
+        - {x: -174.5, y: 48}
+        - {x: -165.5, y: 34}
+        - {x: -160.5, y: 20}
+        - {x: -161.5, y: 14}
+        - {x: -162.5, y: -15}
+        - {x: -163.5, y: -55}
+        - {x: -167.5, y: -61}
+        - {x: -180.5, y: -73}
+        - {x: -180.5, y: -82}
+        - {x: -172.5, y: -90}
+        - {x: 203.5, y: -90}
+        - {x: 208.5, y: -87}
+        - {x: 216.5, y: -81}
+        - {x: 231.5, y: -53}
+    - name: room platforms_3
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 6286
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 240.5, y: -37}
+        - {x: 240.5, y: 5}
+        - {x: 239.5, y: 60}
+        - {x: 230.5, y: 74}
+        - {x: -43.5, y: 74}
+        - {x: -122.5, y: 73}
+        - {x: -162.5, y: 71}
+        - {x: -172.5, y: 67}
+        - {x: -177.5, y: 64}
+        - {x: -178.5, y: 53}
+        - {x: -175.5, y: 50}
+        - {x: -158.5, y: 43}
+        - {x: -164.5, y: 34}
+        - {x: -163.5, y: 30}
+        - {x: -162.5, y: 13}
+        - {x: -161.5, y: -55}
+        - {x: -165.5, y: -58}
+        - {x: -181.5, y: -74}
+        - {x: -181.5, y: -84}
+        - {x: -172.5, y: -91}
+        - {x: -170.5, y: -91}
+        - {x: -169.5, y: -90}
+        - {x: 203.5, y: -90}
+        - {x: 206.5, y: -88}
+        - {x: 216.5, y: -79}
+    - name: room platforms_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5333
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 245.5, y: 46.75}
+        - {x: -179.5, y: 46.75}
+        - {x: -207.5, y: 38.75}
+        - {x: -223.5, y: 31.75}
+        - {x: -223.5, y: -14.25}
+        - {x: -221.5, y: -16.25}
+        - {x: 205.5, y: -16.25}
+        - {x: 223.5, y: -6.25}
+        - {x: 246.5, y: 7.75}
+        - {x: 246.5, y: 45.75}
+    - name: room platforms_5
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 5333
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 47.75}
+        - {x: -186.5, y: 43.75}
+        - {x: -193.5, y: 41.75}
+        - {x: -204.5, y: 39.75}
+        - {x: -224.5, y: 32.75}
+        - {x: -224.5, y: 1.75}
+        - {x: -223.5, y: -14.25}
+        - {x: -221.5, y: -16.25}
+        - {x: 204.5, y: -16.25}
+        - {x: 246.5, y: 8.75}
+        - {x: 246.5, y: 46.75}
+        - {x: 140.5, y: 47.75}
+    - name: room platforms_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4380
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 215.5, y: 11.5}
+        - {x: 212.5, y: 12.5}
+        - {x: -74.5, y: 12.5}
+        - {x: -103.5, y: 10.5}
+        - {x: -163.5, y: -4.5}
+        - {x: -163.5, y: -58.5}
+        - {x: -158.5, y: -68.5}
+        - {x: 166.5, y: -68.5}
+        - {x: 190.5, y: -54.5}
+        - {x: 215.5, y: -23.5}
+    - name: room platforms_7
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 4380
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 109.5, y: -85.5}
+        - {x: 109.5, y: 62.5}
+        - {x: 104.5, y: 79.5}
+        - {x: 81.5, y: 97.5}
+        - {x: -70.5, y: 97.5}
+        - {x: -80.5, y: 96.5}
+        - {x: -102.5, y: 82.5}
+        - {x: -107.5, y: 61.5}
+        - {x: -107.5, y: 51.5}
+        - {x: -106.5, y: 51.5}
+        - {x: -107.5, y: -81.5}
+        - {x: -106.5, y: -102.5}
+        - {x: -87.5, y: -118.5}
+        - {x: 76.5, y: -118.5}
+        - {x: 85.5, y: -113.5}
+        - {x: 103.5, y: -95.5}
+    - name: room platforms_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3427
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 110.5, y: -73.75}
+        - {x: 109.5, y: -73.75}
+        - {x: 109.5, y: 65.25}
+        - {x: 100.5, y: 85.25}
+        - {x: 89.5, y: 94.25}
+        - {x: 73.5, y: 100.25}
+        - {x: -67.5, y: 100.25}
+        - {x: -78.5, y: 98.25}
+        - {x: -89.5, y: 92.25}
+        - {x: -102.5, y: 77.25}
+        - {x: -106.5, y: 65.25}
+        - {x: -106.5, y: -100.75}
+        - {x: -88.5, y: -116.75}
+        - {x: 75.5, y: -116.75}
+        - {x: 88.5, y: -110.75}
+        - {x: 103.5, y: -97.75}
+        - {x: 110.5, y: -78.75}
+    - name: room platforms_9
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 3427
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 109.5, y: 62.25}
+        - {x: 102.5, y: 83.25}
+        - {x: 81.5, y: 100.25}
+        - {x: -76.5, y: 100.25}
+        - {x: -93.5, y: 90.25}
+        - {x: -101.5, y: 82.25}
+        - {x: -107.5, y: 62.25}
+        - {x: -107.5, y: 54.25}
+        - {x: -106.5, y: 54.25}
+        - {x: -107.5, y: 1.25}
+        - {x: -107.5, y: -86.75}
+        - {x: -106.5, y: -96.75}
+        - {x: -100.5, y: -105.75}
+        - {x: -89.5, y: -114.75}
+        - {x: -78.5, y: -116.75}
+        - {x: 74.5, y: -116.75}
+        - {x: 83.5, y: -113.75}
+        - {x: 104.5, y: -95.75}
+        - {x: 109.5, y: -79.75}
+    - name: room platforms_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2474
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 110.5, y: -73}
+        - {x: 109.5, y: -73}
+        - {x: 109.5, y: 61}
+        - {x: 107.5, y: 72}
+        - {x: 102.5, y: 84}
+        - {x: 80.5, y: 100}
+        - {x: -77.5, y: 100}
+        - {x: -97.5, y: 87}
+        - {x: -106.5, y: 68}
+        - {x: -106.5, y: -89}
+        - {x: -105.5, y: -98}
+        - {x: -92.5, y: -114}
+        - {x: -83.5, y: -116}
+        - {x: 77.5, y: -116}
+        - {x: 91.5, y: -108}
+        - {x: 106.5, y: -93}
+        - {x: 110.5, y: -78}
+    - name: room platforms_11
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 2474
+        width: 1972
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 103.5, y: 78}
+        - {x: 102.5, y: 79}
+        - {x: 48.5, y: 79}
+        - {x: 18.5, y: 75}
+        - {x: 9.5, y: 61}
+        - {x: 2.5, y: 49}
+        - {x: -0.5, y: 75}
+        - {x: -118.5, y: 66}
+        - {x: -127.5, y: 57}
+        - {x: -137.5, y: -28}
+        - {x: -137.5, y: -88}
+        - {x: -134.5, y: -91}
+        - {x: 29.5, y: -91}
+        - {x: 72.5, y: -87}
+        - {x: 153.5, y: -24}
+        - {x: 153.5, y: -18}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

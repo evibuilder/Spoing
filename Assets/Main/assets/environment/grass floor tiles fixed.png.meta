@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 655f0f0febf544777862c80e02c5f50f
+timeCreated: 1469992115
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: grass floor tiles fixed_0
+    21300002: grass floor tiles fixed_1
+    21300004: grass floor tiles fixed_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: grass floor tiles fixed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5672
+        width: 2720
+        height: 2520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 183, y: -206}
+        - {x: 191, y: -190}
+        - {x: 197, y: -170}
+        - {x: 203, y: -126}
+        - {x: 207, y: -79}
+        - {x: 207, y: -75}
+        - {x: 209, y: -61}
+        - {x: 224, y: -7}
+        - {x: 235, y: 33}
+        - {x: 246, y: 78}
+        - {x: 249, y: 87}
+        - {x: 258, y: 132}
+        - {x: 263, y: 148}
+        - {x: 263, y: 176}
+        - {x: 256, y: 193}
+        - {x: 245, y: 204}
+        - {x: 223, y: 211}
+        - {x: 214, y: 211}
+        - {x: 207, y: 215}
+        - {x: 195, y: 225}
+        - {x: 183, y: 221}
+        - {x: 180, y: 231}
+        - {x: 170, y: 243}
+        - {x: 158, y: 243}
+        - {x: 150, y: 231}
+        - {x: 146, y: 224}
+        - {x: 132, y: 224}
+        - {x: 120, y: 230}
+        - {x: 103, y: 232}
+        - {x: 87, y: 227}
+        - {x: 76, y: 228}
+        - {x: 62, y: 221}
+        - {x: 43, y: 213}
+        - {x: 19, y: 211}
+        - {x: 5, y: 215}
+        - {x: -5, y: 221}
+        - {x: -10, y: 215}
+        - {x: -40, y: 229}
+        - {x: -49, y: 231}
+        - {x: -68, y: 228}
+        - {x: -100, y: 214}
+        - {x: -106, y: 206}
+        - {x: -137, y: 215}
+        - {x: -167, y: 219}
+        - {x: -187, y: 206}
+        - {x: -197, y: 194}
+        - {x: -205, y: 179}
+        - {x: -207, y: 165}
+        - {x: -208, y: 152}
+        - {x: -214, y: 105}
+        - {x: -216, y: 79}
+        - {x: -218, y: 45}
+        - {x: -218, y: -29}
+        - {x: -217, y: -39}
+        - {x: -218, y: -47}
+        - {x: -218, y: -63}
+        - {x: -217, y: -67}
+        - {x: -214, y: -80}
+        - {x: -209, y: -89}
+        - {x: -199, y: -105}
+        - {x: -169, y: -152}
+        - {x: -158, y: -166}
+        - {x: -146, y: -179}
+        - {x: -125, y: -200}
+        - {x: -98, y: -221}
+        - {x: -76, y: -232}
+        - {x: -47, y: -237}
+        - {x: -29, y: -239}
+        - {x: -17, y: -243}
+        - {x: -1, y: -243}
+        - {x: 5, y: -241}
+        - {x: 50, y: -243}
+        - {x: 110, y: -243}
+        - {x: 140, y: -242}
+        - {x: 158, y: -237}
+        - {x: 175, y: -217}
+    - name: grass floor tiles fixed_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3152
+        width: 2720
+        height: 2520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 197, y: -201}
+        - {x: 202, y: -193}
+        - {x: 220, y: -157}
+        - {x: 221, y: -154}
+        - {x: 239, y: -61}
+        - {x: 241, y: -42}
+        - {x: 241, y: -10}
+        - {x: 239, y: 51}
+        - {x: 238, y: 63}
+        - {x: 233, y: 78}
+        - {x: 233, y: 92}
+        - {x: 235, y: 102}
+        - {x: 230, y: 109}
+        - {x: 233, y: 124}
+        - {x: 248, y: 137}
+        - {x: 263, y: 151}
+        - {x: 263, y: 165}
+        - {x: 252, y: 184}
+        - {x: 248, y: 190}
+        - {x: 237, y: 203}
+        - {x: 226, y: 209}
+        - {x: 215, y: 204}
+        - {x: 186, y: 210}
+        - {x: 164, y: 212}
+        - {x: 156, y: 212}
+        - {x: 127, y: 211}
+        - {x: 102, y: 208}
+        - {x: 58, y: 205}
+        - {x: 58, y: 204}
+        - {x: -6, y: 204}
+        - {x: -17, y: 203}
+        - {x: -30, y: 201}
+        - {x: -71, y: 191}
+        - {x: -88, y: 192}
+        - {x: -98, y: 192}
+        - {x: -111, y: 184}
+        - {x: -131, y: 181}
+        - {x: -146, y: 183}
+        - {x: -169, y: 182}
+        - {x: -172, y: 183}
+        - {x: -188, y: 183}
+        - {x: -201, y: 182}
+        - {x: -204, y: 178}
+        - {x: -210, y: 155}
+        - {x: -213, y: 141}
+        - {x: -213, y: 133}
+        - {x: -207, y: 114}
+        - {x: -205, y: 112}
+        - {x: -195, y: 104}
+        - {x: -190, y: 83}
+        - {x: -190, y: 56}
+        - {x: -198, y: -12}
+        - {x: -205, y: -46}
+        - {x: -217, y: -148}
+        - {x: -221, y: -171}
+        - {x: -221, y: -188}
+        - {x: -215, y: -201}
+        - {x: -205, y: -216}
+        - {x: -167, y: -217}
+        - {x: -150, y: -218}
+        - {x: -119, y: -220}
+        - {x: -97, y: -221}
+        - {x: -28, y: -217}
+        - {x: 12, y: -216}
+        - {x: 13, y: -217}
+        - {x: 43, y: -221}
+        - {x: 80, y: -224}
+        - {x: 95, y: -226}
+        - {x: 111, y: -235}
+        - {x: 135, y: -238}
+        - {x: 145, y: -240}
+        - {x: 149, y: -240}
+        - {x: 174, y: -221}
+        - {x: 184, y: -213}
+        - {x: 189, y: -208}
+    - name: grass floor tiles fixed_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 632
+        width: 2720
+        height: 2520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -224}
+        - {x: 12, y: -216}
+        - {x: 39, y: -219}
+        - {x: 57, y: -219}
+        - {x: 92, y: -214}
+        - {x: 103, y: -214}
+        - {x: 119, y: -218}
+        - {x: 151, y: -223}
+        - {x: 165, y: -225}
+        - {x: 171, y: -225}
+        - {x: 191, y: -218}
+        - {x: 206, y: -200}
+        - {x: 226, y: -157}
+        - {x: 232, y: -137}
+        - {x: 234, y: -121}
+        - {x: 235, y: -98}
+        - {x: 235, y: -87}
+        - {x: 244, y: -62}
+        - {x: 245, y: -47}
+        - {x: 250, y: -17}
+        - {x: 261, y: 14}
+        - {x: 261, y: 49}
+        - {x: 259, y: 71}
+        - {x: 254, y: 100}
+        - {x: 246, y: 134}
+        - {x: 230, y: 164}
+        - {x: 223, y: 175}
+        - {x: 220, y: 178}
+        - {x: 195, y: 192}
+        - {x: 186, y: 192}
+        - {x: 177, y: 189}
+        - {x: 172, y: 182}
+        - {x: 160, y: 193}
+        - {x: 146, y: 199}
+        - {x: 129, y: 199}
+        - {x: 113, y: 196}
+        - {x: 95, y: 194}
+        - {x: 80, y: 203}
+        - {x: 72, y: 206}
+        - {x: 49, y: 209}
+        - {x: 26, y: 203}
+        - {x: 12, y: 201}
+        - {x: -2, y: 195}
+        - {x: -7, y: 189}
+        - {x: -9, y: 198}
+        - {x: -18, y: 212}
+        - {x: -28, y: 216}
+        - {x: -47, y: 221}
+        - {x: -74, y: 223}
+        - {x: -102, y: 223}
+        - {x: -113, y: 222}
+        - {x: -132, y: 201}
+        - {x: -174, y: 156}
+        - {x: -177, y: 149}
+        - {x: -179, y: 136}
+        - {x: -188, y: 97}
+        - {x: -194, y: 69}
+        - {x: -198, y: 49}
+        - {x: -209, y: -35}
+        - {x: -213, y: -77}
+        - {x: -214, y: -92}
+        - {x: -215, y: -109}
+        - {x: -217, y: -137}
+        - {x: -218, y: -173}
+        - {x: -219, y: -184}
+        - {x: -219, y: -218}
+        - {x: -212, y: -224}
+        - {x: -206, y: -235}
+        - {x: -195, y: -246}
+        - {x: -182, y: -248}
+        - {x: -165, y: -250}
+        - {x: -135, y: -250}
+        - {x: -94, y: -245}
+        - {x: -76, y: -242}
+        - {x: -38, y: -233}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
