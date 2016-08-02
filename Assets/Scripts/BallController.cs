@@ -254,6 +254,7 @@ public class BallController : MonoBehaviour
         lineSprite.SetWidth(0.5f, 1f);
         lineSprite.sortingLayerName = "default";
         lineSprite.enabled = true;
+        UnityEngine.Debug.Log(lineSprite.isVisible);
     }
 
     void LineRendererUpdate()
@@ -263,6 +264,8 @@ public class BallController : MonoBehaviour
         points[1].Set(transform.position.x, transform.position.y, transform.position.z);
 
         lineSprite.SetPositions(points);
+
+        UnityEngine.Debug.Log(lineSprite.isVisible);
     }
 
     private bool SpringAbove()
