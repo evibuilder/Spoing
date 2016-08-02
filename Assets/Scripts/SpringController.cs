@@ -105,13 +105,20 @@ public class SpringController : MonoBehaviour
         if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
         {
             this.transform.parent = _controller.ground.transform;
+            _camera.target1 = _controller.ground.transform;
         }
         else
         {
             if (this.transform.parent != null)
             {
                 transform.parent = null;
+
             }
+        }
+
+        if (_controller.ground != null &&_controller.ground.tag != "MovingPlatform")
+        {
+            _camera.target1 = this.transform;
         }
 
         Vector3 velocity = _controller.velocity;

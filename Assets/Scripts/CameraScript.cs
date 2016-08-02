@@ -22,12 +22,20 @@ namespace camera
         {
             if (activeCamera == 1)
             {
-                if (follow)
+                if(target1.tag == "MovingPlatform")
+                {
                     transform.position = new Vector3(target1.position.x, target1.position.y, transform.position.z);
+                }
                 else
                 {
-                    transform.position = new Vector3(target1.position.x, transform.position.y, transform.position.z);
+                    if (follow)
+                        transform.position = new Vector3(target1.position.x, target1.position.y, transform.position.z);
+                    else
+                    {
+                        transform.position = new Vector3(target1.position.x, transform.position.y, transform.position.z);
+                    }
                 }
+                
             }
             else if (activeCamera == 2)
             {

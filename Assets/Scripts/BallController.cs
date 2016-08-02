@@ -263,7 +263,11 @@ public class BallController : MonoBehaviour
         points[0].Set(springTransform.position.x, springTransform.position.y, springTransform.position.z);
         points[1].Set(transform.position.x, transform.position.y, transform.position.z);
 
+        
+
         lineSprite.SetPositions(points);
+
+        lineSprite.transform.position.Set(5, 5, 10);
 
         UnityEngine.Debug.Log(lineSprite.isVisible);
     }
