@@ -75,6 +75,7 @@ public class SpringController : MonoBehaviour
             {
                 timer.Stop();
                 launching = false;
+                chargingUp = false;
 
                 Vector3 force = _ballController.velocity;
 
@@ -88,15 +89,14 @@ public class SpringController : MonoBehaviour
                     force.x *= -1;
                 }
 
-                UnityEngine.Debug.Log("initial velocity is " + force.x);
-
                 _ballController.move(force * Time.deltaTime);
 
                 transform.rotation = Quaternion.Slerp(newRotation, originalRotation, Time.time * 1f);
 
                 isActive = false;
-                GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetActive", true);
+                GameObject.Find("LevelManager").GetComponent<LevelManager>().SendMessage("SetActive", "ball");
                 GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetLaunched", true);
+
 
                 GameObject.Find("Main Camera").SendMessage("SwitchCamera");
             }
@@ -176,7 +176,6 @@ public class SpringController : MonoBehaviour
         }
 
         _controller.move(velocity * Time.deltaTime);
-
     }
 
     public float CalcDistance()

@@ -18,17 +18,22 @@ public class FinishLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(springFinish && ballFinish)
+        if (springFinish && ballFinish)
+        {
+            Debug.Log("finished has been called");
             levelManager.FinishLevel();
+        }
     }
 
 	void OnTriggerEnter2D(Collider2D box)
 	{
 		if (box.name == "spring") {
+            Debug.Log("spring has finished");
             springFinish = true;
 		} 
         else if(box.name == "ball")
         {
+            Debug.Log("ball has finished");
             ballFinish = true;
         }
 	}
@@ -37,6 +42,7 @@ public class FinishLevel : MonoBehaviour {
     {
         if (box.name == "spring")
         {
+            Debug.Log("spring has finished");
             springFinish = true;
         }
         else if (box.name == "ball")
@@ -49,6 +55,7 @@ public class FinishLevel : MonoBehaviour {
     {
         if (box.name == "spring")
         {
+            Debug.Log("spring has exited");
             springFinish = false;
         }
         else if (box.name == "ball")
@@ -56,4 +63,6 @@ public class FinishLevel : MonoBehaviour {
             ballFinish = false;
         }
     }
+
+   
 }

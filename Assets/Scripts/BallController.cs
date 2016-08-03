@@ -133,19 +133,6 @@ public class BallController : MonoBehaviour
             momentum.y += gravity * Time.deltaTime;
             _controller.move(momentum * Time.deltaTime);
         }
-        /*
-        if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
-        {
-            this.transform.parent = _controller.ground.transform;
-
-        }
-        else
-        {
-            if (this.transform.parent != null)
-            {
-                transform.parent = null;
-            }
-        } */
 
         if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
         {
@@ -168,8 +155,6 @@ public class BallController : MonoBehaviour
         }
         else if(velocity.x > 0 && velocity.x < walkSpeed)
         {
-            UnityEngine.Debug.Log("being launched set to false");
-
             beingLaunched = false;
         }
 

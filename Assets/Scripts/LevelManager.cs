@@ -12,9 +12,13 @@ public class LevelManager : MonoBehaviour
     public Text loseText;
     public Text LivesText;
     public int NumberOfLives = 3;
-    
 
-    private Stopwatch timer;
+    public Text TimeText;
+    public Text FramesText;
+    private Stopwatch nextLevelTimer;
+    private Stopwatch levelTimer;
+    private Stopwatch fps;
+    private double FPScount;
     private int currentLives;
     private SpringController spring;
     private BallController ball;
@@ -31,11 +35,18 @@ public class LevelManager : MonoBehaviour
         ball = GameObject.Find("ball").GetComponent<BallController>();
         _camera = GameObject.Find("Main Camera").GetComponent<CameraScript>();
 
-
         currentLives = NumberOfLives;
         LivesText.enabled = true;
         LivesText.text = "Lives: " + currentLives.ToString();
-        timer = new Stopwatch();
+        nextLevelTimer = new Stopwatch();
+        levelTimer = new Stopwatch();
+        levelTimer.Start();
+        fps = new Stopwatch();
+        FPScount = 0;
+
+        fps.Start();
+        TimeText.text = "Elapsed Time: "; 
+        FramesText.text = "FPS: ";
     }
 
     // Update is called once per frame
@@ -63,12 +74,51 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (timer != null)
+        if (nextLevelTimer != null)
         {
-            if (timer.ElapsedMilliseconds > 2000)
+            if (nextLevelTimer.ElapsedMilliseconds > 2000)
             {
                 gameManager.NextLevel();
             }
+        }
+        TimeText.text = "Elapsed Time: " + (levelTimer.ElapsedMilliseconds/1000).ToString();
+
+        UpdateFPS();
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(850, 20, 100, 100), FramesText.text);
+        GUI.Label(new Rect(850, 40, 200, 100), TimeText.text);
+    }
+
+    public void SetActive(string player)
+    {
+        if(player == "string")
+        {
+            spring.SetActive(true);
+        }
+        else if(player == "ball")
+        {
+            ball.SetActive(true);
+        }
+    }
+
+    private void UpdateFPS()
+    {
+        FPScount++;
+
+        if(fps.ElapsedMilliseconds > 1000)
+        {
+            double frames = System.Math.Round(fps.ElapsedMilliseconds / FPScount);
+
+
+            FramesText.text = "FPS: " + frames.ToString();
+            
+
+            fps.Reset();
+            fps.Start();
+            FPScount = 0;
         }
     }
 
@@ -76,19 +126,26 @@ public class LevelManager : MonoBehaviour
     {
         GameObject.Find("spring").GetComponent<Transform>().position = GameObject.Find("SpringRespawnPoint").GetComponent<Transform>().position;
         GameObject.Find("ball").GetComponent<Transform>().position = GameObject.Find("BallRespawnPoint").GetComponent<Transform>().position;
+
+        levelTimer.Reset();
+        levelTimer.Start();
     }
     public void FinishLevel()
     {
-        winText.text = "Level Finished";
+        winText.text = "Level Finished with time of " + levelTimer.Elapsed.ToString();
         winText.enabled = true;
 
-        timer.Start();
+        levelTimer.Stop();
+        nextLevelTimer.Start();
     }
 
     public void GameOver()
     {
         loseText.text = "Level Failed";
         loseText.enabled = true;
+
+        levelTimer.Stop();
+
         gameManager.RestartLevel();
     }
 
@@ -97,6 +154,7 @@ public class LevelManager : MonoBehaviour
         UnityEngine.Debug.Log("kill has been called");
 
         currentLives--;
+        levelTimer.Stop();
 
         if (LivesText != null)
         {

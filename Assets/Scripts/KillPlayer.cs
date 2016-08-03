@@ -26,14 +26,7 @@ public class KillPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(gameObject.tag == "puff")
-        {
-            if (col.name == "spring" || col.name == "ball")
-            {
-                levelManager.Kill();
-            }
-        }
-        else if(gameObject.tag == "bug")
+        if(gameObject.tag == "bug")
         {
             if (col.name == "spring")
             {
