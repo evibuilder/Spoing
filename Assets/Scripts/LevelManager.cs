@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
         if (nextLevelTimer != null)
         {
-            if (nextLevelTimer.ElapsedMilliseconds > 2000)
+            if (nextLevelTimer.ElapsedMilliseconds > 5000)
             {
                 gameManager.NextLevel();
             }
@@ -132,8 +132,8 @@ public class LevelManager : MonoBehaviour
     }
     public void FinishLevel()
     {
-        winText.text = "Level Finished with time of " + levelTimer.Elapsed.ToString();
         winText.enabled = true;
+        winText.text = "Level Finished with time of " + (levelTimer.ElapsedMilliseconds / 1000).ToString() + " seconds";
 
         levelTimer.Stop();
         nextLevelTimer.Start();
@@ -141,8 +141,9 @@ public class LevelManager : MonoBehaviour
 
     public void GameOver()
     {
-        loseText.text = "Level Failed";
+        
         loseText.enabled = true;
+        loseText.text = "Level Failed";
 
         levelTimer.Stop();
 
