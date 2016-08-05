@@ -10,6 +10,9 @@ public class SpringController : MonoBehaviour
     public float walkSpeed = 3;
     public float jumpHeight = 2;
     public float baseLaunchSpeed = 10f;
+    public float maxLaunchTimer = 5000f;
+    public AudioClip boingSound;
+    public AudioClip bounceSound;
 
     private float BaseCameraTimer = 460;
     private CharacterController2D _controller;
@@ -25,6 +28,7 @@ public class SpringController : MonoBehaviour
     private Quaternion newRotation;
     private Rigidbody2D ballBody;
     private CameraScript _camera;
+    private AudioSource source;
 
     void Start()
     {
@@ -34,6 +38,8 @@ public class SpringController : MonoBehaviour
         jumpTimer = new Stopwatch();
         ballBody = GameObject.Find("ball").GetComponent<Rigidbody2D>();
         _camera = GameObject.Find("Main Camera").GetComponent<CameraScript>();
+
+        source = GetComponent<AudioSource>();
 
         chargingUp = false;
         isActive = true;
@@ -75,10 +81,15 @@ public class SpringController : MonoBehaviour
             {
                 timer.Stop();
                 launching = false;
+                chargingUp = false;
 
                 Vector3 force = _ballController.velocity;
 
-                force.x = Mathf.Sqrt(timer.ElapsedMilliseconds / 1000f) * baseLaunchSpeed;
+                if(timer.ElapsedMilliseconds > maxLaunchTimer)
+                    force.x = Mathf.Sqrt(maxLaunchTimer/1000f) * baseLaunchSpeed;
+                else
+                    force.x = Mathf.Sqrt(timer.ElapsedMilliseconds / 1000f) * baseLaunchSpeed;
+
                 force.y = 5f;
 
                 Transform spring = GetComponent<Transform>();
@@ -88,15 +99,16 @@ public class SpringController : MonoBehaviour
                     force.x *= -1;
                 }
 
-                UnityEngine.Debug.Log("initial velocity is " + force.x);
-
                 _ballController.move(force * Time.deltaTime);
+
+                PlayBoing();
 
                 transform.rotation = Quaternion.Slerp(newRotation, originalRotation, Time.time * 1f);
 
                 isActive = false;
-                GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetActive", true);
+                GameObject.Find("LevelManager").GetComponent<LevelManager>().SendMessage("SetActive", "ball");
                 GameObject.Find("ball").GetComponent<BallController>().SendMessage("SetLaunched", true);
+
 
                 GameObject.Find("Main Camera").SendMessage("SwitchCamera");
             }
@@ -146,7 +158,12 @@ public class SpringController : MonoBehaviour
             chargingUp = false;
             if (_controller.isGrounded)
             {
-                velocity.y = Mathf.Sqrt((timer.ElapsedMilliseconds / 1000f) * 4f * jumpHeight * -gravity);
+                if(timer.ElapsedMilliseconds > maxLaunchTimer)
+                    velocity.y = Mathf.Sqrt((maxLaunchTimer/1000) * 4f * jumpHeight * -gravity);
+                else
+                    velocity.y = Mathf.Sqrt((timer.ElapsedMilliseconds / 1000f) * 4f * jumpHeight * -gravity);
+
+                PlayBoing();
             }
         }
         else if (_controller.isGrounded && !chargingUp && !launching && isActive)
@@ -163,6 +180,8 @@ public class SpringController : MonoBehaviour
             {
                 jumpTimer.Start();
             }
+
+            PlayBounce();
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -176,7 +195,6 @@ public class SpringController : MonoBehaviour
         }
 
         _controller.move(velocity * Time.deltaTime);
-
     }
 
     public float CalcDistance()
@@ -218,6 +236,24 @@ public class SpringController : MonoBehaviour
     public bool IsLaunching()
     {
         return launching;
+    }
+
+    public void PlayBoing()
+    {
+        source.PlayOneShot(boingSound, SetVolume()); 
+    }
+
+    public void PlayBounce()
+    {
+        source.PlayOneShot(bounceSound, SetVolume());
+    }
+
+    private float SetVolume()
+    {
+        float volLowRange = .5f;
+        float volHighRange = 1.0f;
+
+        return Random.Range(volLowRange, volHighRange);
     }
 
 }

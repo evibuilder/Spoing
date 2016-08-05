@@ -11,8 +11,9 @@ public class BallController : MonoBehaviour
     public float maxSwingLength = 6;
     public float minSwingLength = 1;
     public LineRenderer lineSprite;
+    public AudioClip ballRoll;
 
-
+    private AudioSource source;
     private CharacterController2D _controller;
     private DistanceJoint2D joint;
     private Rigidbody2D springBody;
@@ -39,6 +40,8 @@ public class BallController : MonoBehaviour
         isActive = false;
         swinging = false;
         beingLaunched = false;
+
+        source = GetComponent<AudioSource>();
 
         lineSprite.enabled = false;
     }
@@ -133,19 +136,6 @@ public class BallController : MonoBehaviour
             momentum.y += gravity * Time.deltaTime;
             _controller.move(momentum * Time.deltaTime);
         }
-        /*
-        if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
-        {
-            this.transform.parent = _controller.ground.transform;
-
-        }
-        else
-        {
-            if (this.transform.parent != null)
-            {
-                transform.parent = null;
-            }
-        } */
 
         if (_controller.isGrounded && _controller.ground != null && _controller.ground.tag == "MovingPlatform")
         {
@@ -168,8 +158,6 @@ public class BallController : MonoBehaviour
         }
         else if(velocity.x > 0 && velocity.x < walkSpeed)
         {
-            UnityEngine.Debug.Log("being launched set to false");
-
             beingLaunched = false;
         }
 
@@ -186,6 +174,8 @@ public class BallController : MonoBehaviour
                 velocity.x += walkSpeed * -1;
             else
                 velocity.x += walkSpeed * -1 * 2;
+
+            PlayRoll();
         }
         else if (Input.GetAxis("Horizontal") > 0 && isActive && !beingLaunched)
         {
@@ -193,7 +183,12 @@ public class BallController : MonoBehaviour
                 velocity.x += walkSpeed;
             else
                 velocity.x += walkSpeed * 2;
+
+            PlayRoll();
         }
+
+        if(_controller.velocity.x == 0)
+            source.Stop();
 
 		if (!swinging) //&& !_controller.isGrounded)
             velocity.y += gravity * Time.deltaTime;
@@ -229,6 +224,8 @@ public class BallController : MonoBehaviour
             _controller.move(velocity * Time.deltaTime);
 
             originY = 0;
+
+            col.GetComponent<SpringController>().PlayBoing();
         }
     }
 
@@ -333,4 +330,19 @@ public class BallController : MonoBehaviour
         isActive = state;
     }
 
+    private float SetVolume()
+    {
+        
+        return 0.25f;
+
+    }
+
+    public void PlayRoll()
+    {
+        if (!source.isPlaying)
+        {
+            source.PlayOneShot(ballRoll, SetVolume());
+
+        }
+    }
 }

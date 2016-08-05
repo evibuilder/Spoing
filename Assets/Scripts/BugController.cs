@@ -8,16 +8,22 @@ public class BugController : MonoBehaviour {
     public int maxDistance = 20;
     public int moveSpeed = 3;
     public float gravity = -35f;
+    public AudioClip squish;
 
+    private AudioSource source;
     private int currDistance;
     private bool moveRight;
     private CharacterController2D _controller;
+
+
 
     // Use this for initialization
     void Start () {
         _controller = gameObject.GetComponent<CharacterController2D>();
         moveRight = true;
         currDistance = 0;
+
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,9 +78,25 @@ public class BugController : MonoBehaviour {
 
             if(falling || launched)
             {
+                PlaySquish();
                 GetComponent<BoxCollider2D>().isTrigger = false;
                 GetComponent<Rigidbody2D>().isKinematic = false;
             }
         }
     }
+
+    private float SetVolume()
+    {
+        float volLowRange = .5f;
+        float volHighRange = 1.0f;
+
+        return Random.Range(volLowRange, volHighRange);
+    }
+
+    public void PlaySquish()
+    {
+        source.PlayOneShot(squish, SetVolume());
+    }
+
+
 }

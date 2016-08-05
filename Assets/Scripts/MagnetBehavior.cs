@@ -10,8 +10,10 @@ public class MagnetBehavior : MonoBehaviour {
     public int moveSpeed = 3;
     public float magnetStrength = 50f;
     public LevelManager levelManager;
+    public AudioClip magnet;
 
 
+    private AudioSource source;
     private int currDistance;
     private bool moveRight;
     private bool moveDown;
@@ -20,6 +22,7 @@ public class MagnetBehavior : MonoBehaviour {
     private DistanceJoint2D joint;
     private Rigidbody2D springBody;
     private CharacterController2D springController;
+    private Animator springAnimator;
     private float prevGrav;
     private float prevAngDrag;
     private float prevLinDrag;
@@ -32,8 +35,11 @@ public class MagnetBehavior : MonoBehaviour {
         moveRight = true;
         moveDown = true;
 
+        source = GetComponent<AudioSource>();
+
         _controller = gameObject.GetComponent<CharacterController2D>();
         joint = GameObject.Find("spring").GetComponent<DistanceJoint2D>();
+        springAnimator = GameObject.Find("spring").GetComponent<Animator>();
         joint.enabled = false;
         springBody = GameObject.Find("spring").GetComponent<Rigidbody2D>();
         springController = GameObject.Find("spring").GetComponent<CharacterController2D>();
@@ -130,12 +136,15 @@ public class MagnetBehavior : MonoBehaviour {
         joint.connectedAnchor = magnetPos;
         joint.distance = CalcDistance();
 
+        PlayMagnet();
+
         springController.enabled = false;
         springBody.isKinematic = false;
         springBody.gravityScale = 0f;
         springBody.drag = 0f;
         springBody.angularDrag = 0f;
         springBody.mass = 0f;
+        springAnimator.enabled = false;
         GameObject.Find("spring").GetComponent<SpringController>().SendMessage("ChangeGravity", 0f);
 
         joint.enabled = true;
@@ -143,6 +152,7 @@ public class MagnetBehavior : MonoBehaviour {
 
     private void ResetValues()
     {
+        source.Stop();
         joint.connectedBody = null;
         joint.enabled = false;
         springBody.gravityScale = prevGrav;
@@ -150,6 +160,7 @@ public class MagnetBehavior : MonoBehaviour {
         springBody.drag = prevLinDrag;
         springBody.angularDrag = prevAngDrag;
         springBody.isKinematic = true;
+        springAnimator.enabled = true;
         GameObject.Find("spring").GetComponent<SpringController>().SendMessage("ChangeGravity", -35f);
         springController.enabled = true;
         Quaternion newRotation = GameObject.Find("spring").GetComponent<Transform>().rotation;
@@ -241,4 +252,19 @@ public class MagnetBehavior : MonoBehaviour {
         }
 
     }
+
+    public void PlayMagnet()
+    {
+        source.PlayOneShot(magnet, SetVolume());
+    }
+
+    private float SetVolume()
+    {
+        float volLowRange = .5f;
+        float volHighRange = 1.0f;
+
+        return Random.Range(volLowRange, volHighRange);
+    }
+
+
 }
