@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
 
         if(restartLevelTimer != null)
         {
-            if(nextLevelTimer.ElapsedMilliseconds > 5000)
+            if(restartLevelTimer.ElapsedMilliseconds > 5000)
             {
                 gameManager.RestartLevel();
             }
