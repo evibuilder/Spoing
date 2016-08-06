@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     public AudioClip fail;
 
     
-    public Text TimeText;
-    public Text FramesText;
+    //public Text TimeText;
+    //public Text FramesText;
 
     private AudioSource source;
     private Stopwatch nextLevelTimer;
@@ -55,8 +55,8 @@ public class LevelManager : MonoBehaviour
         FPScount = 0;
 
         fps.Start();
-        TimeText.text = "Elapsed Time: "; 
-        FramesText.text = "FPS: ";
+        //TimeText.text = "Elapsed Time: "; 
+        //FramesText.text = "FPS: ";
     }
 
     // Update is called once per frame
@@ -99,15 +99,15 @@ public class LevelManager : MonoBehaviour
                 gameManager.RestartLevel();
             }
         }
-        TimeText.text = "Elapsed Time: " + (levelTimer.ElapsedMilliseconds/1000).ToString();
+        //TimeText.text = "Elapsed Time: " + (levelTimer.ElapsedMilliseconds/1000).ToString();
 
         UpdateFPS();
     }
 
     void OnGUI()
     {
-        GUI.Label(new Rect(850, 20, 100, 100), FramesText.text);
-        GUI.Label(new Rect(850, 40, 200, 100), TimeText.text);
+        //GUI.Label(new Rect(850, 20, 100, 100), FramesText.text);
+        //GUI.Label(new Rect(850, 40, 200, 100), TimeText.text);
     }
 
     public void SetActive(string player)
@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour
             double frames = System.Math.Round(fps.ElapsedMilliseconds / FPScount);
 
 
-            FramesText.text = "FPS: " + frames.ToString();
+            //FramesText.text = "FPS: " + frames.ToString();
             
 
             fps.Reset();

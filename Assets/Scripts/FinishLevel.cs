@@ -4,6 +4,7 @@ using System.Collections;
 public class FinishLevel : MonoBehaviour {
 
 	public LevelManager levelManager;
+	//public GameManager gameManager;
 
     private bool springFinish;
     private bool ballFinish;
@@ -11,6 +12,7 @@ public class FinishLevel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		levelManager = FindObjectOfType<LevelManager>();
+		//gameManager = FindObjectOfType<GameManager> ();
         springFinish = false;
         ballFinish = false;
 	}
@@ -21,6 +23,7 @@ public class FinishLevel : MonoBehaviour {
         if (springFinish && ballFinish)
         {
             levelManager.FinishLevel();
+
         }
     }
 
