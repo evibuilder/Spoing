@@ -172,7 +172,7 @@ public class LevelManager : MonoBehaviour
 
         levelTimer.Stop();
 
-        nextLevelTimer.Start();
+        restartLevelTimer.Start();
     }
 
     public void Kill()
